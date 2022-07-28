@@ -190,7 +190,7 @@ struct SearchBarView: View {
                 )
                 
                 ForEach((0 ..< 20).filter({ "\($0)".contains(serchText)
-                    // || serchText.isEmpty
+                     || serchText.isEmpty
                     
                 }), id: \.self) { num in
                     HStack {
