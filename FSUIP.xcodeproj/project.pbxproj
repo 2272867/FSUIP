@@ -55,6 +55,9 @@
 		753970E6287F52D90056937F /* FSUIP */ = {
 			isa = PBXGroup;
 			children = (
+				75D16E652895A8190030D52B /* ViewModel */,
+				75D16E642895A8100030D52B /* Views */,
+				75D16E622895A7F40030D52B /* Model */,
 				753970E7287F52D90056937F /* FSUIPApp.swift */,
 				753970E9287F52D90056937F /* ContentView.swift */,
 				753970EB287F52DA0056937F /* Assets.xcassets */,
@@ -71,6 +74,27 @@
 				753970EE287F52DA0056937F /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		75D16E622895A7F40030D52B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		75D16E642895A8100030D52B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		75D16E652895A8190030D52B /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

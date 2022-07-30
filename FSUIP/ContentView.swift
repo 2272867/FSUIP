@@ -27,55 +27,62 @@ struct ContentView: View {
 
                     BannerImageView()
                     
-                    ScrollView(.horizontal, showsIndicators: false) {
-                        HStack {
-                            ForEach(0 ..< promotedCtegories.count, id: \.self) { i in
-                                PromotedCategoriesView(isActive: i == selectedIndex, text: promotedCtegories[i])
-                                    .onTapGesture {
-                                        selectedIndex =  i
-                                    }
+
+                    VStack {
+                        ScrollView(.horizontal, showsIndicators: false) {
+                            HStack {
+                                ForEach(0 ..< promotedCtegories.count, id: \.self) { i in
+                                    PromotedCategoriesView(isActive: i == selectedIndex, text: promotedCtegories[i])
+                                        .onTapGesture {
+                                            selectedIndex =  i
+                                        }
+                                    
+                                }
                             }
+                            .padding(.horizontal)
                         }
-                        .padding(.horizontal)
+                        
+                        Divider()
+                            .padding(.horizontal, 16)
                     }
                     
-                    Divider()
-                    
-                    Spacer()
-                        .frame(width: 32)
-                    
-                    ScrollView(.horizontal, showsIndicators: false) {
-                        HStack {
-                            ForEach(0 ..< 4) { i in
-                                ProductCardView(image: Image("test_\(i + 1)"))
+                    VStack {
+                        ScrollView(.horizontal, showsIndicators: false) {
+                            HStack {
+                                ForEach(0 ..< 4) { i in
+                                    ProductCardView(image: Image("test_\(i + 1)"))
+                                }
                             }
                         }
                     }
-                    
 
                     HStack {
                         VStack {
-                            Spacer(minLength: 40)
                             Text("Категории")
                                 .font(.system(size: 18))
                                 .frame(maxWidth: .infinity, alignment: .leading)
                                 .padding(.leading, 18)
-                            Spacer(minLength: 1)
+                            Spacer()
+                                .frame(width: 1)
                             Divider()
                                 .background(Color.black)
+                                .padding(.horizontal, 16)
                             ForEach(0 ..< categories.count, id: \.self) { i in
                                 CategoriesView(text: categories[i], image: Image("category_\(i + 1)"))
                             }
                         }
                     }
                     
+                    Spacer()
+                        .frame(height: 40)
+                    
                     VStack {
-                        Spacer(minLength: 40)
                         Text("Популярные бренды")
                             .font(.system(size: 18))
                             .frame(maxWidth: .infinity, alignment: .leading)
                             .padding(.leading, 18)
                         Divider()
+                            .padding(.horizontal, 16)
                         ScrollView(.horizontal, showsIndicators: false) {
                             HStack {
                                 ForEach(0 ..< 6, id:\.self) {i in
@@ -98,7 +105,10 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        Group {
+            ContentView()
+            ContentView()
+        }
     }
 }
 
@@ -211,7 +221,8 @@ struct BannerImageView: View {
             Image("petShopbaner")
                 .resizable()
                 .frame(width: UIScreen.main.bounds.width, height: 144)
-        Spacer(minLength: 32)
+        Spacer()
+            .frame(width: 32)
     }
 }
 
@@ -220,18 +231,24 @@ struct PromotedCategoriesView: View {
     let text: String
     var body: some View {
         HStack {
-            VStack (alignment: .leading, spacing: 0) {
-                Text(text)
-                    .font(.system(size: 18))
-                    .fontWeight(.medium)
-                    .foregroundColor(isActive ? Color.black: Color.black.opacity(0.5))
-                
-                if (isActive) {
-                    Rectangle().fill(Color.purple)
-                    .frame(height: 3)
+            Button {
+                //some action
+            } label: {
+                VStack (alignment: .leading, spacing: 0) {
+                    Text(text)
+                        .font(.system(size: 18))
+                        .fontWeight(.medium)
+                        .foregroundColor(isActive ? Color.black: Color.black.opacity(0.5))
+                    
+                    if (isActive) {
+                        Rectangle().fill(Color.purple)
+                        .frame(height: 3)
+                    }
                 }
+                .padding(.leading)
             }
-            .padding(.leading)
+
+            
         }
     }
 }
@@ -239,34 +256,68 @@ struct PromotedCategoriesView: View {
 struct ProductCardView: View {
     let image: Image
     var body: some View {
-        VStack(spacing: 14) {
-            Text("Hill's Prescription Diet Feline Metabolic")
-                .font(.system(size: 16))
-                .lineLimit(2)
-            Text("Диета для кошек с избыточным весом")
-                .font(.system(size: 14))
-                .lineLimit(2)
-            Text("27.55 руб.")
-                .font(.system(size: 24))
-                .fontWeight(.bold)
-                .foregroundColor(.purple)
-            Text("39.35 руб.")
-                .strikethrough()
-            image
-                .resizable()
-                .frame(width: 160, height: 160)
-                .cornerRadius(20.0)
-            Button(action: {}) {
-                Text("Добавить в корзину")
-                    .foregroundColor(.black)
+        ZStack {
+            RoundedRectangle(cornerRadius: 40).fill(.white)
+                .shadow(color: .gray, radius: 5)
+                .background(Color.white)
+                .frame(width: UIScreen.main.bounds.width - 28, height: 230)
+            VStack {
+                HStack(alignment: .top) {
+                    image
+                        .resizable()
+                        .frame(width: 105, height: 140)
+                        .cornerRadius(20.0)
+                        .background(Color.clear)
+                    
+                    VStack(alignment: .leading) {
+                        Spacer()
+                            .frame(height: 17)
+                        Text("Hill's Prescription Diet Feline Metabolic")
+                            .font(.system(size: 17))
+                            .fontWeight(.bold)
+                            .lineLimit(3)
+                        Spacer()
+                            .frame(height: 7)
+                        Text("Диета для кошек с избыточным весом")
+                            .font(.system(size: 15))
+                            .lineLimit(2)
+                        
+                        Spacer()
+                            .frame(height: 17)
+                        
+                        HStack {
+                            Text("27.55 руб.")
+                                .font(.system(size: 25))
+                                .fontWeight(.bold)
+                                .foregroundColor(.purple)
+                            Text("39.35 руб.")
+                                .strikethrough()
+                        }
+                    }
+                    .padding(.vertical,5)
+                }
+                .padding(.horizontal, 7)
+                
+                Spacer()
+                    .frame(height: 17)
+                
+                Button(action: {}) {
+                    Text("Добавить в корзину")
+                        .foregroundColor(.black)
+                        .frame(width: UIScreen.main.bounds.width - 170 , height: 12)
+                }
+                .padding()
+                .background(.yellow)
+                .cornerRadius(20)
+                .frame(width: 150, height: 20)
+                
+                Spacer()
+                    .frame(height: 14)
             }
-            .padding()
-            .background(.yellow)
-            .cornerRadius(100)
-            .frame(width: 311, height: 48)
         }
         .padding()
-        .frame(width: 343, height: 374)
+        .padding(.horizontal, 16)
+        .frame(width: UIScreen.main.bounds.width - 20, height: 270)
     }
     
 }
@@ -275,26 +326,46 @@ struct CategoriesView: View {
     let text: String
     let image: Image
     var body: some View {
-            HStack {
-                image
-                    .frame(width: 32, height: 32)
-                Text(text)
-                    .font(.system(size: 16))
-                Spacer()
-                Image(systemName: "chevron.forward")
-                    .frame(width: 20, height: 10)
+        Button {
+       //some action
+        } label: {
+            VStack {
+                HStack {
+                    image
+                        .frame(width: 32, height: 32)
+                    Spacer()
+                        .frame(width: 24)
+                    Text(text)
+                        .font(.system(size: 16))
+                        .foregroundColor(.black)
+                    Spacer()
+                    Image(systemName: "chevron.forward")
+                        .frame(width: 20, height: 10)
+                        .foregroundColor(.black)
+                    Spacer()
+                        .frame(width: 20)
+                }
+                .padding()
+                Divider()
+                    .background(Color.black )
+                    .padding(.horizontal, 16)
+                
             }
-            .padding()
-            Divider()
-            .background(Color.black)
+        }
     }
 }
 
 struct PopularBrandsView: View {
     let image: Image
     var body: some View {
+        Button {
+            //some action
+        } label: {
             image
             .resizable()
             .frame(width: 91, height: 50)
+        }
+
+
     }
 }
