@@ -1,6 +1,11 @@
+//
+//  ContentView.swift
+//  FSUIP
+//
+//  Created by Солодкий Артур Жанович on 13.07.22.
+//
 
-<<<<<<< Updated upstream
-=======
+
 import SwiftUI
 import CoreData
 
@@ -293,4 +298,3 @@ struct PopularBrandsView: View {
             .frame(width: 91, height: 50)
     }
 }
->>>>>>> Stashed changes
