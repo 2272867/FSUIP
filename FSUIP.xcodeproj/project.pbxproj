@@ -8,21 +8,27 @@
 
 /* Begin PBXBuildFile section */
 		753970E8287F52D90056937F /* FSUIPApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753970E7287F52D90056937F /* FSUIPApp.swift */; };
-		753970EA287F52D90056937F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753970E9287F52D90056937F /* ContentView.swift */; };
+		753970EA287F52D90056937F /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753970E9287F52D90056937F /* MainView.swift */; };
 		753970EC287F52DA0056937F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 753970EB287F52DA0056937F /* Assets.xcassets */; };
 		753970EF287F52DA0056937F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 753970EE287F52DA0056937F /* Preview Assets.xcassets */; };
 		753970F1287F52DA0056937F /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753970F0287F52DA0056937F /* Persistence.swift */; };
 		753970F4287F52DA0056937F /* FSUIP.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 753970F2287F52DA0056937F /* FSUIP.xcdatamodeld */; };
+		753AAA8A289702D1008F8BB2 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753AAA89289702D1008F8BB2 /* ProfileView.swift */; };
+		7584D5A928984BEB00688E56 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7584D5A828984BEB00688E56 /* HeaderView.swift */; };
+		7584D5AB2898524100688E56 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7584D5AA2898524100688E56 /* ContentView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		753970E4287F52D90056937F /* FSUIP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FSUIP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		753970E7287F52D90056937F /* FSUIPApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSUIPApp.swift; sourceTree = "<group>"; };
-		753970E9287F52D90056937F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		753970E9287F52D90056937F /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		753970EB287F52DA0056937F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		753970EE287F52DA0056937F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		753970F0287F52DA0056937F /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		753970F3287F52DA0056937F /* FSUIP.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FSUIP.xcdatamodel; sourceTree = "<group>"; };
+		753AAA89289702D1008F8BB2 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		7584D5A828984BEB00688E56 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		7584D5AA2898524100688E56 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,11 +61,10 @@
 		753970E6287F52D90056937F /* FSUIP */ = {
 			isa = PBXGroup;
 			children = (
+				753970E7287F52D90056937F /* FSUIPApp.swift */,
 				75D16E652895A8190030D52B /* ViewModel */,
 				75D16E642895A8100030D52B /* Views */,
 				75D16E622895A7F40030D52B /* Model */,
-				753970E7287F52D90056937F /* FSUIPApp.swift */,
-				753970E9287F52D90056937F /* ContentView.swift */,
 				753970EB287F52DA0056937F /* Assets.xcassets */,
 				753970F0287F52DA0056937F /* Persistence.swift */,
 				753970F2287F52DA0056937F /* FSUIP.xcdatamodeld */,
@@ -86,6 +91,10 @@
 		75D16E642895A8100030D52B /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				753970E9287F52D90056937F /* MainView.swift */,
+				753AAA89289702D1008F8BB2 /* ProfileView.swift */,
+				7584D5A828984BEB00688E56 /* HeaderView.swift */,
+				7584D5AA2898524100688E56 /* ContentView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -168,8 +177,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				753970F1287F52DA0056937F /* Persistence.swift in Sources */,
+				7584D5A928984BEB00688E56 /* HeaderView.swift in Sources */,
+				7584D5AB2898524100688E56 /* ContentView.swift in Sources */,
 				753970F4287F52DA0056937F /* FSUIP.xcdatamodeld in Sources */,
-				753970EA287F52D90056937F /* ContentView.swift in Sources */,
+				753AAA8A289702D1008F8BB2 /* ProfileView.swift in Sources */,
+				753970EA287F52D90056937F /* MainView.swift in Sources */,
 				753970E8287F52D90056937F /* FSUIPApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

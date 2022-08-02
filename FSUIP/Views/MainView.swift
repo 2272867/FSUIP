@@ -9,7 +9,8 @@
 import SwiftUI
 import CoreData
 
-struct ContentView: View {
+struct MainView: View {
+    @State private var isShowingProfileView = false
     @State private var selectedIndex: Int = 0
     @State private var showSearchBar = false
     @State private var serchText = ""
@@ -18,104 +19,151 @@ struct ContentView: View {
     private let promotedCtegories = ["Акции", "Хит продаж", "Новинки"]
     @State private var categories = ["Собаки", "Кошки", "Грызуны", "Птицы", "Рыбки", "Другие"]
     var body: some View {
-        ZStack {
-            ScrollView {
-                VStack {
-                    AppHeaderBar(showSearchBar: $showSearchBar)
-                        
-                    SearchBarView(serchText: $serchText, isSearching: $isSearching, showSearchBar: $showSearchBar, textFieldId: $textFieldId)
-
-                    BannerImageView()
-                    
-
+        NavigationView {
+            ZStack {
+                ScrollView {
                     VStack {
-                        ScrollView(.horizontal, showsIndicators: false) {
-                            HStack {
-                                ForEach(0 ..< promotedCtegories.count, id: \.self) { i in
-                                    PromotedCategoriesView(isActive: i == selectedIndex, text: promotedCtegories[i])
-                                        .onTapGesture {
-                                            selectedIndex =  i
-                                        }
-                                    
-                                }
-                            }
-                            .padding(.horizontal)
-                        }
                         
-                        Divider()
-                            .padding(.horizontal, 16)
-                    }
-                    
-                    VStack {
-                        ScrollView(.horizontal, showsIndicators: false) {
-                            HStack {
-                                ForEach(0 ..< 4) { i in
-                                    ProductCardView(image: Image("test_\(i + 1)"))
-                                }
-                            }
-                        }
-                    }
+                        AppHeaderBar(showSearchBar: $showSearchBar, isShowingProfileView: $isShowingProfileView)
+                            
+                        SearchBarView(serchText: $serchText, isSearching: $isSearching, showSearchBar: $showSearchBar, textFieldId: $textFieldId)
 
-                    HStack {
+                        BannerImageView()
+                        
+
                         VStack {
-                            Text("Категории")
+                            ScrollView(.horizontal, showsIndicators: false) {
+                                HStack {
+                                    ForEach(0 ..< promotedCtegories.count, id: \.self) { i in
+                                        PromotedCategoriesView(isActive: i == selectedIndex, text: promotedCtegories[i])
+                                            .onTapGesture {
+                                                selectedIndex =  i
+                                            }
+                                        
+                                    }
+                                }
+                                .padding(.horizontal)
+                            }
+                            
+                            Divider()
+                                .padding(.horizontal, 16)
+                        }
+                        
+                        VStack {
+                            ScrollView(.horizontal, showsIndicators: false) {
+                                HStack {
+                                    ForEach(0 ..< 4) { i in
+                                        ProductCardView(image: Image("test_\(i + 1)"))
+                                    }
+                                }
+                            }
+                        }
+
+                        HStack {
+                            VStack {
+                                Text("Категории")
+                                    .font(.system(size: 18))
+                                    .frame(maxWidth: .infinity, alignment: .leading)
+                                    .padding(.leading, 18)
+                                Spacer()
+                                    .frame(width: 1)
+                                Divider()
+                                    .background(Color.black)
+                                    .padding(.horizontal, 16)
+                                ForEach(0 ..< categories.count, id: \.self) { i in
+                                    CategoriesView(text: categories[i], image: Image("category_\(i + 1)"))
+                                }
+                            }
+                        }
+                        
+                        Spacer()
+                            .frame(height: 40)
+                        
+                        VStack {
+                            Text("Популярные бренды")
                                 .font(.system(size: 18))
                                 .frame(maxWidth: .infinity, alignment: .leading)
                                 .padding(.leading, 18)
-                            Spacer()
-                                .frame(width: 1)
                             Divider()
-                                .background(Color.black)
                                 .padding(.horizontal, 16)
-                            ForEach(0 ..< categories.count, id: \.self) { i in
-                                CategoriesView(text: categories[i], image: Image("category_\(i + 1)"))
-                            }
-                        }
-                    }
-                    
-                    Spacer()
-                        .frame(height: 40)
-                    
-                    VStack {
-                        Text("Популярные бренды")
-                            .font(.system(size: 18))
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                            .padding(.leading, 18)
-                        Divider()
-                            .padding(.horizontal, 16)
-                        ScrollView(.horizontal, showsIndicators: false) {
-                            HStack {
-                                ForEach(0 ..< 6, id:\.self) {i in
-                                    PopularBrandsView(image: Image("popularBrand_\(i + 1)"))
+                            ScrollView(.horizontal, showsIndicators: false) {
+                                HStack {
+                                    ForEach(0 ..< 6, id:\.self) {i in
+                                        PopularBrandsView(image: Image("popularBrand_\(i + 1)"))
                                     }
                                     
                                 }
                             }
                         }
+                    }
+                }
+                VStack {
+                    Spacer()
+                    BottomNavBarView(showSearchBar: $showSearchBar, isShowingProfileView: $isShowingProfileView)
                 }
             }
+            .padding(.top, 1)
+            .onTapGesture {
+            action: do { textFieldId = UUID().uuidString}}
+            .onLongPressGesture {
+            action: do { textFieldId = UUID().uuidString}}
         }
-        .padding(.top, 1)
-        .onTapGesture {
-        action: do { textFieldId = UUID().uuidString}}
-        .onLongPressGesture {
-        action: do { textFieldId = UUID().uuidString}}
+        .navigationBarHidden(true)
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct MainView_Previews: PreviewProvider {
     static var previews: some View {
-        Group {
-            ContentView()
-            ContentView()
+            MainView()
+    }
+}
+struct BottomNavBarView: View {
+    @Binding var showSearchBar: Bool
+    @Binding var isShowingProfileView: Bool
+    
+    var body: some View {
+        HStack {
+            BottomNavBarItem(image: Image("petShopLogo"), action: {})
+            BottomNavBarItem(image: Image("findImage"), action: {
+                withAnimation {
+                self.showSearchBar.toggle()
+                }
+            })
+            BottomNavBarItem(image: Image("bookmarkImage"), action: {})
+            BottomNavBarItem(image: Image("shoppingCart"), action: {})
+            BottomNavBarItem(image: Image("profileImage"), action: {
+                self.isShowingProfileView = true
+            })
+        }
+        .padding()
+        .background(Color.yellow)
+        .clipShape(Capsule())
+        .padding(.horizontal)
+        .shadow(color: Color.blue.opacity(0.15), radius: 8, x: 2, y: 6)
+    }
+}
+
+struct BottomNavBarItem: View {
+    let image: Image
+    let action: () -> Void
+    var body: some View {
+        Button(action: action) {
+            image
+                .frame(maxWidth: .infinity)
         }
     }
 }
+
 
 struct AppHeaderBar: View {
     @Binding var showSearchBar: Bool
+    @Binding var isShowingProfileView: Bool
     var body: some View {
         ZStack {
+            NavigationLink(destination: ProfileView(), isActive: $isShowingProfileView) {ProfileView()}
+                .navigationBarHidden(true)
+                .navigationBarBackButtonHidden(true)
+            
             Color.yellow
                 .edgesIgnoringSafeArea(.all)
                 .frame(width: UIScreen.main.bounds.width, height: 56)
@@ -147,7 +195,9 @@ struct AppHeaderBar: View {
                         Image("shoppingCart")
                             .frame(width: 24, height: 24)
                     }
-                    Button(action: {}) {
+                    Button(action: {
+                        self.isShowingProfileView = true
+                    }) {
                         Image("profileImage")
                             .frame(width: 24, height: 24)
                     }

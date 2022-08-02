@@ -12,8 +12,10 @@ struct FSUIPApp: App {
     let persistenceController = PersistenceController.shared
 
     var body: some Scene {
+       // @State var showSearchBar = false
+      //  @State var isShowingProfileView = false
         WindowGroup {
-            ContentView()
+            MainView()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }
