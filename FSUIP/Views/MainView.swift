@@ -9,180 +9,131 @@
 import SwiftUI
 import CoreData
 
-struct ContentView: View {
-    @State private var selectedIndex: Int = 0
-    @State private var showSearchBar = false
+struct MainView: View {
+    @State private var isShowingProfileView = false
+    @State private var selectedCategory: Int = 0
+ //   @State private var showSearchBar = false
     @State private var serchText = ""
     @State private var isSearching = false
     @State private var textFieldId: String = UUID().uuidString
     private let promotedCtegories = ["Акции", "Хит продаж", "Новинки"]
     @State private var categories = ["Собаки", "Кошки", "Грызуны", "Птицы", "Рыбки", "Другие"]
     var body: some View {
-        ZStack {
-            ScrollView {
-                VStack {
-                    AppHeaderBar(showSearchBar: $showSearchBar)
-                        
-                    SearchBarView(serchText: $serchText, isSearching: $isSearching, showSearchBar: $showSearchBar, textFieldId: $textFieldId)
-
-                    BannerImageView()
-                    
-
+            ZStack {
+                ScrollView(showsIndicators: false) {
                     VStack {
-                        ScrollView(.horizontal, showsIndicators: false) {
-                            HStack {
-                                ForEach(0 ..< promotedCtegories.count, id: \.self) { i in
-                                    PromotedCategoriesView(isActive: i == selectedIndex, text: promotedCtegories[i])
-                                        .onTapGesture {
-                                            selectedIndex =  i
-                                        }
-                                    
-                                }
-                            }
-                            .padding(.horizontal)
-                        }
                         
-                        Divider()
-                            .padding(.horizontal, 16)
-                    }
-                    
-                    VStack {
-                        ScrollView(.horizontal, showsIndicators: false) {
-                            HStack {
-                                ForEach(0 ..< 4) { i in
-                                    ProductCardView(image: Image("test_\(i + 1)"))
-                                }
-                            }
-                        }
-                    }
-
-                    HStack {
+                        SearchBarView(serchText: $serchText, isSearching: $isSearching, textFieldId: $textFieldId)
+                        
                         VStack {
-                            Text("Категории")
+                            Text("Популярные бренды")
                                 .font(.system(size: 18))
                                 .frame(maxWidth: .infinity, alignment: .leading)
                                 .padding(.leading, 18)
-                            Spacer()
-                                .frame(width: 1)
                             Divider()
-                                .background(Color.black)
                                 .padding(.horizontal, 16)
-                            ForEach(0 ..< categories.count, id: \.self) { i in
-                                CategoriesView(text: categories[i], image: Image("category_\(i + 1)"))
-                            }
-                        }
-                    }
-                    
-                    Spacer()
-                        .frame(height: 40)
-                    
-                    VStack {
-                        Text("Популярные бренды")
-                            .font(.system(size: 18))
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                            .padding(.leading, 18)
-                        Divider()
-                            .padding(.horizontal, 16)
-                        ScrollView(.horizontal, showsIndicators: false) {
-                            HStack {
-                                ForEach(0 ..< 6, id:\.self) {i in
-                                    PopularBrandsView(image: Image("popularBrand_\(i + 1)"))
+                            ScrollView(.horizontal, showsIndicators: false) {
+                                HStack {
+                                    ForEach(0 ..< 6, id:\.self) {i in
+                                        PopularBrandsView(image: Image("popularBrand_\(i + 1)"))
                                     }
                                     
                                 }
                             }
                         }
-                }
-            }
-        }
-        .padding(.top, 1)
-        .onTapGesture {
-        action: do { textFieldId = UUID().uuidString}}
-        .onLongPressGesture {
-        action: do { textFieldId = UUID().uuidString}}
-    }
-}
+                        
+                        Spacer()
+                            .frame(height: 20)
+                        
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        Group {
-            ContentView()
-            ContentView()
-        }
-    }
-}
-
-struct AppHeaderBar: View {
-    @Binding var showSearchBar: Bool
-    var body: some View {
-        ZStack {
-            Color.yellow
-                .edgesIgnoringSafeArea(.all)
-                .frame(width: UIScreen.main.bounds.width, height: 56)
-            
-            HStack {
-                
-                Button(action: {}) {
-                    Image("petShopLogo")
-                        .frame(width: 68, height: 40)
-                }
-                
-                Spacer()
-                
-                HStack {
-                    
-                    Button(action: {
-                        withAnimation {
-                        self.showSearchBar.toggle()
+                        VStack {
+                            ScrollView(.horizontal, showsIndicators: false) {
+                                HStack {
+                                    ForEach(0 ..< promotedCtegories.count, id: \.self) { i in
+                                        PromotedCategoriesView(isActive: i == selectedCategory, text: promotedCtegories[i])
+                                            .onTapGesture {
+                                                selectedCategory =  i
+                                            }
+                                        
+                                    }
+                                }
+                                .padding(.horizontal)
+                            }
+                            
+                            Divider()
+                                .padding(.horizontal, 16)
                         }
-                    }) {
-                        Image("findImage")
-                            .frame(width: 24, height: 24)
+                        
+                        VStack {
+                            ScrollView(.horizontal, showsIndicators: false) {
+                                HStack {
+                                    ForEach(0 ..< 4) { i in
+                                        ProductCardView(image: Image("test_\(i + 1)"))
+                                    }
+                                }
+                            }
+                        }
+
+                        HStack {
+                            VStack {
+                                Text("Категории")
+                                    .font(.system(size: 18))
+                                    .frame(maxWidth: .infinity, alignment: .leading)
+                                    .padding(.leading, 18)
+                                Spacer()
+                                    .frame(width: 1)
+                                Divider()
+                                    .background(Color.black)
+                                    .padding(.horizontal, 16)
+                                ForEach(0 ..< categories.count, id: \.self) { i in
+                                    CategoriesView(text: categories[i], image: Image("category_\(i + 1)"))
+                                }
+                            }
+                        }
                     }
-                    Button(action: {}) {
-                        Image("bookmarkImage")
-                            .frame(width: 24, height: 24)
-                    }
-                    Button(action: {}) {
-                        Image("shoppingCart")
-                            .frame(width: 24, height: 24)
-                    }
-                    Button(action: {}) {
-                        Image("profileImage")
-                            .frame(width: 24, height: 24)
-                    }
+                    Spacer()
+                        .frame(height: 70)
                 }
-                
             }
-            .padding(.horizontal)
-        }
+            .padding(.top, 1)
+            .onTapGesture {
+            action: do { textFieldId = UUID().uuidString}}
+            .onLongPressGesture {
+            action: do { textFieldId = UUID().uuidString}}
+    }
+}
+
+struct MainView_Previews: PreviewProvider {
+    static var previews: some View {
+            MainView()
     }
 }
 
 struct SearchBarView: View {
     @Binding var serchText: String
     @Binding var isSearching: Bool
-    @Binding var showSearchBar: Bool
+  //  @Binding var showSearchBar: Bool
     @Binding var textFieldId: String
     var body: some View {
         
-        if showSearchBar {
+     //   if showSearchBar {
             ScrollView {
                 HStack {
                     TextField("Что ищем?", text: $serchText)
-                        .padding(.leading, 30)
-                        .cornerRadius(999)
+                        .padding(.leading, 29)
                         .id(textFieldId)
                 }
-              
-                .padding(12)
-                .background(LinearGradient(gradient: Gradient(colors: [Color.yellow, Color.purple]), startPoint: .topLeading, endPoint: .bottomTrailing))
+                .cornerRadius(20)
+                .padding(10)
                 .padding(.horizontal)
-                .shadow(color: .gray, radius: 10)
                 .foregroundColor(.black)
-                .onTapGesture(perform: {
-                    isSearching = true
-                })
+                .background(.ultraThinMaterial)
+                .cornerRadius(15)
+                .padding(.horizontal)
+                .shadow(color: Color.purple.opacity(0.5), radius: 4, x: 6, y: 3)
+                .frame(width: nil, height: 60)
+                
+                .onTapGesture(perform: { isSearching = true })
                 .overlay(
                     HStack{
                         Image(systemName: "magnifyingglass")
@@ -212,7 +163,22 @@ struct SearchBarView: View {
                         .background(Color.black)
                 }
             }
+      //  }
+    }
+}
+
+struct PopularBrandsView: View {
+    let image: Image
+    var body: some View {
+        Button {
+            //some action
+        } label: {
+            image
+                .resizable()
+                .frame(width: 91, height: 50)
         }
+        
+        
     }
 }
 
@@ -238,7 +204,7 @@ struct PromotedCategoriesView: View {
                     Text(text)
                         .font(.system(size: 18))
                         .fontWeight(.medium)
-                        .foregroundColor(isActive ? Color.black: Color.black.opacity(0.5))
+                        .foregroundColor(isActive ? Color.black : Color.black.opacity(0.5))
                     
                     if (isActive) {
                         Rectangle().fill(Color.purple)
@@ -258,7 +224,7 @@ struct ProductCardView: View {
     var body: some View {
         ZStack {
             RoundedRectangle(cornerRadius: 40).fill(.white)
-                .shadow(color: .gray, radius: 5)
+                .shadow(color: Color.purple.opacity(0.5), radius: 5, x: 9, y: 9)
                 .background(Color.white)
                 .frame(width: UIScreen.main.bounds.width - 28, height: 230)
             VStack {
@@ -289,7 +255,7 @@ struct ProductCardView: View {
                             Text("27.55 руб.")
                                 .font(.system(size: 25))
                                 .fontWeight(.bold)
-                                .foregroundColor(.purple)
+                                .foregroundColor(.purple.opacity(0.9))
                             Text("39.35 руб.")
                                 .strikethrough()
                         }
@@ -307,7 +273,7 @@ struct ProductCardView: View {
                         .frame(width: UIScreen.main.bounds.width - 170 , height: 12)
                 }
                 .padding()
-                .background(.yellow)
+                .background(.purple.opacity(0.8))
                 .cornerRadius(20)
                 .frame(width: 150, height: 20)
                 
@@ -352,20 +318,5 @@ struct CategoriesView: View {
                 
             }
         }
-    }
-}
-
-struct PopularBrandsView: View {
-    let image: Image
-    var body: some View {
-        Button {
-            //some action
-        } label: {
-            image
-            .resizable()
-            .frame(width: 91, height: 50)
-        }
-
-
     }
 }
