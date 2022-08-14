@@ -1,0 +1,49 @@
+//
+//  TextFieldForLoginScreen.swift
+//  FSUIP
+//
+//  Created by Солодкий Артур Жанович on 13.08.22.
+//
+
+import SwiftUI
+
+struct TextFieldForLoginScreen: View {
+    @Binding var value: String
+    
+    var placeholder = "Placeholder"
+    var icon = Image(systemName: "person.crop.circle")
+    var isSecure: Bool = false
+    var keyboardType: UIKeyboardType = .default
+    var onEditingChanged: ((Bool) -> ()) = {_ in}
+    
+    var body: some View {
+        HStack {
+            if isSecure{
+                SecureField(placeholder, text: self.$value, onCommit: {
+                    self.onEditingChanged(false)
+                })
+                .padding()
+            } else {
+                TextField(placeholder, text: self.$value, onEditingChanged: { flag in
+                    self.onEditingChanged(flag)
+                })
+                .padding()
+                .keyboardType(keyboardType)
+            }
+            
+            icon.imageScale(.large)
+                .padding()
+                .foregroundColor(.purple.opacity(0.7))
+        }
+        
+        .background(Color.gray.opacity(0.2))
+        .clipShape(Capsule())
+        
+    }
+}
+
+struct LoginScreenTextField_Previews: PreviewProvider {
+    static var previews: some View {
+        TextFieldForLoginScreen(value: .constant(""))
+    }
+}

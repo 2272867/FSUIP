@@ -14,8 +14,21 @@
 		753970F1287F52DA0056937F /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753970F0287F52DA0056937F /* Persistence.swift */; };
 		753970F4287F52DA0056937F /* FSUIP.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 753970F2287F52DA0056937F /* FSUIP.xcdatamodeld */; };
 		753AAA8A289702D1008F8BB2 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753AAA89289702D1008F8BB2 /* ProfileView.swift */; };
+<<<<<<< Updated upstream
 		7584D5A928984BEB00688E56 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7584D5A828984BEB00688E56 /* HeaderView.swift */; };
+=======
+		7546ACBA28A7D89800C5D684 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7546ACB928A7D89800C5D684 /* LoginView.swift */; };
+		7546ACBC28A7DC4A00C5D684 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7546ACBB28A7DC4A00C5D684 /* SignUpView.swift */; };
+		7546ACBE28A7DC5C00C5D684 /* ForgotPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7546ACBD28A7DC5C00C5D684 /* ForgotPasswordView.swift */; };
+		7546ACC128A7DDDF00C5D684 /* TextFieldForLoginScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7546ACC028A7DDDF00C5D684 /* TextFieldForLoginScreen.swift */; };
+		7546ACC328A7DE9E00C5D684 /* ButtonForLoginScreens.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7546ACC228A7DE9E00C5D684 /* ButtonForLoginScreens.swift */; };
+>>>>>>> Stashed changes
 		7584D5AB2898524100688E56 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7584D5AA2898524100688E56 /* ContentView.swift */; };
+		75A6ED8628A8F2F30003DCE9 /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A6ED8528A8F2F30003DCE9 /* Credentials.swift */; };
+		75A6ED8928A8F3970003DCE9 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A6ED8828A8F3970003DCE9 /* APIService.swift */; };
+		75A6ED8B28A8F5D40003DCE9 /* SuperSecretExtantionToHideKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A6ED8A28A8F5D40003DCE9 /* SuperSecretExtantionToHideKeyboard.swift */; };
+		75A6ED8D28A8F87B0003DCE9 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A6ED8C28A8F87B0003DCE9 /* LoginViewModel.swift */; };
+		75A6ED8F28A904D10003DCE9 /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A6ED8E28A904D10003DCE9 /* Authentication.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,8 +40,21 @@
 		753970F0287F52DA0056937F /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		753970F3287F52DA0056937F /* FSUIP.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FSUIP.xcdatamodel; sourceTree = "<group>"; };
 		753AAA89289702D1008F8BB2 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+<<<<<<< Updated upstream
 		7584D5A828984BEB00688E56 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+=======
+		7546ACB928A7D89800C5D684 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		7546ACBB28A7DC4A00C5D684 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		7546ACBD28A7DC5C00C5D684 /* ForgotPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordView.swift; sourceTree = "<group>"; };
+		7546ACC028A7DDDF00C5D684 /* TextFieldForLoginScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldForLoginScreen.swift; sourceTree = "<group>"; };
+		7546ACC228A7DE9E00C5D684 /* ButtonForLoginScreens.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonForLoginScreens.swift; sourceTree = "<group>"; };
+>>>>>>> Stashed changes
 		7584D5AA2898524100688E56 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		75A6ED8528A8F2F30003DCE9 /* Credentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
+		75A6ED8828A8F3970003DCE9 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		75A6ED8A28A8F5D40003DCE9 /* SuperSecretExtantionToHideKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperSecretExtantionToHideKeyboard.swift; sourceTree = "<group>"; };
+		75A6ED8C28A8F87B0003DCE9 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		75A6ED8E28A904D10003DCE9 /* Authentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authentication.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +88,7 @@
 			isa = PBXGroup;
 			children = (
 				753970E7287F52D90056937F /* FSUIPApp.swift */,
+				75A6ED8728A8F34E0003DCE9 /* Services */,
 				75D16E652895A8190030D52B /* ViewModel */,
 				75D16E642895A8100030D52B /* Views */,
 				75D16E622895A7F40030D52B /* Model */,
@@ -81,9 +108,40 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		7546ACB828A7D87700C5D684 /* LoginViews */ = {
+			isa = PBXGroup;
+			children = (
+				7546ACBF28A7DD1F00C5D684 /* ReusableViewLoginScreen */,
+				7546ACB928A7D89800C5D684 /* LoginView.swift */,
+				7546ACBB28A7DC4A00C5D684 /* SignUpView.swift */,
+				7546ACBD28A7DC5C00C5D684 /* ForgotPasswordView.swift */,
+			);
+			path = LoginViews;
+			sourceTree = "<group>";
+		};
+		7546ACBF28A7DD1F00C5D684 /* ReusableViewLoginScreen */ = {
+			isa = PBXGroup;
+			children = (
+				7546ACC028A7DDDF00C5D684 /* TextFieldForLoginScreen.swift */,
+				7546ACC228A7DE9E00C5D684 /* ButtonForLoginScreens.swift */,
+			);
+			path = ReusableViewLoginScreen;
+			sourceTree = "<group>";
+		};
+		75A6ED8728A8F34E0003DCE9 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				75A6ED8828A8F3970003DCE9 /* APIService.swift */,
+				75A6ED8A28A8F5D40003DCE9 /* SuperSecretExtantionToHideKeyboard.swift */,
+				75A6ED8E28A904D10003DCE9 /* Authentication.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		75D16E622895A7F40030D52B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				75A6ED8528A8F2F30003DCE9 /* Credentials.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -93,8 +151,13 @@
 			children = (
 				753970E9287F52D90056937F /* MainView.swift */,
 				753AAA89289702D1008F8BB2 /* ProfileView.swift */,
+<<<<<<< Updated upstream
 				7584D5A828984BEB00688E56 /* HeaderView.swift */,
 				7584D5AA2898524100688E56 /* ContentView.swift */,
+=======
+				7522B7FA289E77E5008C0476 /* TabBarView.swift */,
+				7546ACB828A7D87700C5D684 /* LoginViews */,
+>>>>>>> Stashed changes
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -102,6 +165,7 @@
 		75D16E652895A8190030D52B /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				75A6ED8C28A8F87B0003DCE9 /* LoginViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -176,12 +240,30 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+<<<<<<< Updated upstream
+=======
+				75A6ED8928A8F3970003DCE9 /* APIService.swift in Sources */,
+				752D98AB289FD4B9000EDDD8 /* ProductsBookmarkView.swift in Sources */,
+				7546ACC128A7DDDF00C5D684 /* TextFieldForLoginScreen.swift in Sources */,
+				75A6ED8F28A904D10003DCE9 /* Authentication.swift in Sources */,
+				7546ACC328A7DE9E00C5D684 /* ButtonForLoginScreens.swift in Sources */,
+>>>>>>> Stashed changes
 				753970F1287F52DA0056937F /* Persistence.swift in Sources */,
 				7584D5A928984BEB00688E56 /* HeaderView.swift in Sources */,
 				7584D5AB2898524100688E56 /* ContentView.swift in Sources */,
+				75A6ED8628A8F2F30003DCE9 /* Credentials.swift in Sources */,
+				7546ACBC28A7DC4A00C5D684 /* SignUpView.swift in Sources */,
+				75A6ED8B28A8F5D40003DCE9 /* SuperSecretExtantionToHideKeyboard.swift in Sources */,
 				753970F4287F52DA0056937F /* FSUIP.xcdatamodeld in Sources */,
 				753AAA8A289702D1008F8BB2 /* ProfileView.swift in Sources */,
 				753970EA287F52D90056937F /* MainView.swift in Sources */,
+<<<<<<< Updated upstream
+=======
+				7546ACBE28A7DC5C00C5D684 /* ForgotPasswordView.swift in Sources */,
+				752D98A9289FD490000EDDD8 /* ShopingCartView.swift in Sources */,
+				7546ACBA28A7D89800C5D684 /* LoginView.swift in Sources */,
+				75A6ED8D28A8F87B0003DCE9 /* LoginViewModel.swift in Sources */,
+>>>>>>> Stashed changes
 				753970E8287F52D90056937F /* FSUIPApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
