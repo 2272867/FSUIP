@@ -6,14 +6,12 @@
 //
 
 import SwiftUI
+import FirebaseAuth
 
 struct SignUpView: View {
-    @State private var email = ""
-    @State private var password = ""
-    @State private var confirmedPassword = ""
     
+    @ObservedObject  var model: CredentialsModel
     @State private var formOffset: CGFloat = 0
-    
     @Binding var presentSignupSheet: Bool
     
     var body: some View {
@@ -27,30 +25,25 @@ struct SignUpView: View {
                 .font(.system(size: 16))
             
             VStack(spacing: 10.0) {
-                TextFieldForLoginScreen(value: self.$email, placeholder: "Email", icon: Image(systemName: "at"), onEditingChanged: { flag in withAnimation {
-                        self.formOffset = flag ? 0 : 0
-                    }
-                })
                 
-                TextFieldForLoginScreen(value: self.$password, placeholder: "Придумайте пароль", icon: Image(systemName: "lock"), isSecure: true, onEditingChanged: { flag in withAnimation {
-                    self.formOffset = flag ? 0 : 0
-                    }
-                })
+                TextFieldForLoginScreen(textValue: $model.email_SignUp, placeholder: "Email", icon: "at", onEditingChanged: { flag in withAnimation {
+                        self.formOffset = flag ? 0 : 0}})
                 
-                TextFieldForLoginScreen(value: self.$confirmedPassword, placeholder: "Повторите свой пароль", icon: Image(systemName: "lock.rotation"), isSecure: true, onEditingChanged: { flag in withAnimation {
-                    self.formOffset = flag ? -200 : 0
-                    }
-                })
+                TextFieldForLoginScreen(textValue: $model.password_SignUp, placeholder: "Придумайте пароль", icon: "lock", isSecure: true, onEditingChanged: { flag in withAnimation {
+                    self.formOffset = flag ? 0 : 0}})
+                
+                TextFieldForLoginScreen(textValue: $model.reEnterPassword, placeholder: "Повторите свой пароль", icon: "lock.rotation", isSecure: true, onEditingChanged: { flag in withAnimation {
+                    self.formOffset = flag ? -200 : 0}})
                 
                 ButtonForLoginScreens(text: "Зарегистрироваться") {
-                    
+                    model.singUp()
                 }
             }
             
             Button(action: {
                 self.presentSignupSheet.toggle()
             }) {
-                Text("Уже есть аккаунт?").accentColor(Color.blue)
+                Text("Вернуться к экрану входа.").accentColor(Color.blue)
             }
             
             
@@ -58,11 +51,22 @@ struct SignUpView: View {
         .onTapGesture { UIApplication.shared.endEditing() }
         .padding()
         .offset(y: self.formOffset)
+        .alert(isPresented: $model.alert, content: {
+            Alert(title: Text("Внимание"), message: Text(model.alertMsg), dismissButton: .destructive(Text("OK"), action: {
+                if model.alertMsg == "На ваш email выслано письмо. Подтвердите регистрацию." {
+                    
+                    self.presentSignupSheet = false
+                    model.email_SignUp = ""
+                    model.password_SignUp = ""
+                    model.reEnterPassword = ""
+                }
+            }))
+        })
     }
 }
 
-struct SignUpView_Previews: PreviewProvider {
-    static var previews: some View {
-        SignUpView(presentSignupSheet: .constant(false))
-    }
-}
+//struct SignUpView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        SignUpView(presentSignupSheet: .constant(false))
+//    }
+//}

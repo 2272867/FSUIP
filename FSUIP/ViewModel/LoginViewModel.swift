@@ -6,28 +6,32 @@
 //
 
 import Foundation
+import FirebaseAuth
+import SwiftUI  
 
 class LoginViewModel: ObservableObject {
-    @Published var credentials = Credentials()
-    @Published var showTabBarView = false
-    
-    var loginDisable: Bool {
-        credentials.email.isEmpty || credentials.password.isEmpty
-    }
-    
-    func login(completion: @escaping (Bool) -> Void) {
-        showTabBarView = true
-        APIService.shared.login(credentials: credentials) { [unowned self](result:Result<Bool, APIService.APIError>) in
-            showTabBarView = false
-            switch result {
-            case .success:
-                completion(true)
-            case .failure:
-                credentials = Credentials()
-                completion(false)
-            }
-        }
-    }
+//    @ObservedObject var credentials = CredentialsModel()
+//    @Published var showTabBarView = false
+//    @Published var error: Authentication.AuthenticationError?
+////    var loginDisable: Bool {
+////        credentials.email.isEmpty || credentials.password.isEmpty
+////    }
+//
+//    func login(completion: @escaping (Bool) -> Void) {
+//        showTabBarView = true
+//        APIService.shared.login(credentials: credentials) { [unowned self](result:Result<Bool, Authentication.AuthenticationError>) in
+//            showTabBarView = false
+//            switch result {
+//            case .success:
+//              //  KeyCheinStorage.saveCredentials(credentials)
+//                completion(true)
+//            case .failure(let authError):
+//                credentials = CredentialsModel()
+//                error = authError
+//                completion(false)
+//            }
+//        }
+//    }
     
     
 }

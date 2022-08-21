@@ -11,8 +11,12 @@ import CoreData
 
 struct MainView: View {
     @State private var isShowingProfileView = false
+<<<<<<< Updated upstream
     @State private var selectedIndex: Int = 0
     @State private var showSearchBar = false
+=======
+    @State private var selectedCategory: Int = 0
+>>>>>>> Stashed changes
     @State private var serchText = ""
     @State private var isSearching = false
     @State private var textFieldId: String = UUID().uuidString
@@ -221,11 +225,17 @@ struct AppHeaderBar: View {
 struct SearchBarView: View {
     @Binding var serchText: String
     @Binding var isSearching: Bool
+<<<<<<< Updated upstream
     @Binding var showSearchBar: Bool
     @Binding var textFieldId: String
     var body: some View {
         
         if showSearchBar {
+=======
+    @Binding var textFieldId: String
+    var body: some View {
+        
+>>>>>>> Stashed changes
             ScrollView {
                 HStack {
                     TextField("Что ищем?", text: $serchText)
@@ -271,6 +281,21 @@ struct SearchBarView: View {
                         .background(Color.black)
                 }
             }
+<<<<<<< Updated upstream
+=======
+    }
+}
+
+struct PopularBrandsView: View {
+    let image: Image
+    var body: some View {
+        Button {
+            //some action
+        } label: {
+            image
+                .resizable()
+                .frame(width: 91, height: 50)
+>>>>>>> Stashed changes
         }
     }
 }
