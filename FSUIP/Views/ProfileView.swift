@@ -6,13 +6,20 @@
 //
 
 import SwiftUI
+import FirebaseAuth
 
 struct ProfileView: View {
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
  //   @Binding var showSearchBar: Bool
   //  @Binding var isShowingProfileView: Bool
 =======
     @EnvironmentObject var authentication: Authentication
+=======
+    @AppStorage("login_Status") var status = true
+    @StateObject var model = CredentialsModel()
+   // @EnvironmentObject var authentication: Authentication
+>>>>>>> Stashed changes
     @State private var isAnimating = false
     @State private var showProgress = false
     var foreverAnimation: Animation {
@@ -41,8 +48,12 @@ struct ProfileView: View {
                             .onDisappear { self.isAnimating = false }
                         Spacer()
                             .frame(height: 50)
+                        
+                        Text("залогинился как \(Auth.auth().currentUser?.email ?? "")")
+                        Spacer()
+                        
                         Button("Выйди и зайди нормально!!!") {
-                            authentication.updateValidation(success: false)
+                            model.logOut()
                         }
                         
 >>>>>>> Stashed changes

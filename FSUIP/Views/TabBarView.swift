@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct TabBarPage: Identifiable {
+    
+    
     var id = UUID()
     var page: Any
     var icon: String
@@ -25,6 +27,7 @@ struct TabBarView: View {
     }
     
     var body: some View {
+        
         ZStack(alignment: .bottom) {
             
             TabView(selection: $selectedTab) {
@@ -70,15 +73,3 @@ struct TabBarView: View {
         }
     }
 }
-
-struct TabBarView_Previews: PreviewProvider {
-    static var previews: some View {
-        TabBarView(pages: .constant([
-            TabBarPage(page: MainView(), icon: "house", fillColor: .purple),
-            TabBarPage(page: LoginView(), icon: "heart", fillColor: .red),
-            TabBarPage(page: ShopingCartView(), icon: "cart", fillColor: .green),
-            TabBarPage(page: ProfileView(), icon: "person", fillColor: .blue)
-        ]))
-    }
-}
-
