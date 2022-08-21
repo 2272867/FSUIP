@@ -8,16 +8,16 @@
 import SwiftUI
 
 struct ContentView: View {
+
     @State var tabBarPages: [TabBarPage] = [
         TabBarPage(page: MainView(), icon: "house", fillColor: .purple),
         TabBarPage(page: ProductsBookmarkView(), icon: "heart", fillColor: .red),
-        TabBarPage(page: ShopingCartView(), icon: "cart", fillColor: .indigo),
+        TabBarPage(page: ShopingCartView(), icon: "cart", fillColor: .orange),
         TabBarPage(page: ProfileView(), icon: "person", fillColor: .blue)
     ]
         var body: some View {
             TabBarView(pages: $tabBarPages)
         }
-
 }
     
 

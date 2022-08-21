@@ -97,9 +97,8 @@ struct MainView: View {
             }
             .padding(.top, 1)
             .onTapGesture {
-            action: do { textFieldId = UUID().uuidString}}
-            .onLongPressGesture {
-            action: do { textFieldId = UUID().uuidString}}
+                UIApplication.shared.endEditing()
+            }
     }
 }
 
@@ -258,6 +257,7 @@ struct ProductCardView: View {
                                 .foregroundColor(.purple.opacity(0.9))
                             Text("39.35 руб.")
                                 .strikethrough()
+                                .foregroundColor(.black.opacity(0.7))
                         }
                     }
                     .padding(.vertical,5)
@@ -269,8 +269,9 @@ struct ProductCardView: View {
                 
                 Button(action: {}) {
                     Text("Добавить в корзину")
-                        .foregroundColor(.black)
+                        .foregroundColor(.white)
                         .frame(width: UIScreen.main.bounds.width - 170 , height: 12)
+                    
                 }
                 .padding()
                 .background(.purple.opacity(0.8))

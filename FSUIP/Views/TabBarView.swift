@@ -58,6 +58,7 @@ struct TabBarView: View {
                         }
                         .padding(.horizontal)
                         .padding(.vertical, 5)
+                        .badge(5)
                     }
                     .frame(maxWidth: .infinity)
                 }
@@ -75,8 +76,8 @@ struct TabBarView_Previews: PreviewProvider {
     static var previews: some View {
         TabBarView(pages: .constant([
             TabBarPage(page: MainView(), icon: "house", fillColor: .purple),
-            TabBarPage(page: EmptyView(), icon: "heart", fillColor: .red),
-            TabBarPage(page: EmptyView(), icon: "cart", fillColor: .green),
+            TabBarPage(page: LoginView(), icon: "heart", fillColor: .red),
+            TabBarPage(page: ShopingCartView(), icon: "cart", fillColor: .green),
             TabBarPage(page: ProfileView(), icon: "person", fillColor: .blue)
         ]))
     }
