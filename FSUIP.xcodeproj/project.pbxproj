@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7522B7FB289E77E5008C0476 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7522B7FA289E77E5008C0476 /* TabBarView.swift */; };
+		752D98A9289FD490000EDDD8 /* ShopingCartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752D98A8289FD490000EDDD8 /* ShopingCartView.swift */; };
+		752D98AB289FD4B9000EDDD8 /* ProductsBookmarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752D98AA289FD4B9000EDDD8 /* ProductsBookmarkView.swift */; };
 		753970E8287F52D90056937F /* FSUIPApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753970E7287F52D90056937F /* FSUIPApp.swift */; };
 		753970EA287F52D90056937F /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753970E9287F52D90056937F /* MainView.swift */; };
 		753970EC287F52DA0056937F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 753970EB287F52DA0056937F /* Assets.xcassets */; };
@@ -14,11 +17,27 @@
 		753970F1287F52DA0056937F /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753970F0287F52DA0056937F /* Persistence.swift */; };
 		753970F4287F52DA0056937F /* FSUIP.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 753970F2287F52DA0056937F /* FSUIP.xcdatamodeld */; };
 		753AAA8A289702D1008F8BB2 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753AAA89289702D1008F8BB2 /* ProfileView.swift */; };
-		7584D5A928984BEB00688E56 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7584D5A828984BEB00688E56 /* HeaderView.swift */; };
+		753EB63128B0F0C70097E4FA /* AppUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753EB63028B0F0C70097E4FA /* AppUser.swift */; };
+		753EB63528B12F7E0097E4FA /* KeyCheinStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753EB63428B12F7E0097E4FA /* KeyCheinStorage.swift */; };
+		7546ACBA28A7D89800C5D684 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7546ACB928A7D89800C5D684 /* LoginView.swift */; };
+		7546ACBC28A7DC4A00C5D684 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7546ACBB28A7DC4A00C5D684 /* SignUpView.swift */; };
+		7546ACBE28A7DC5C00C5D684 /* ForgotPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7546ACBD28A7DC5C00C5D684 /* ForgotPasswordView.swift */; };
+		7546ACC128A7DDDF00C5D684 /* TextFieldForLoginScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7546ACC028A7DDDF00C5D684 /* TextFieldForLoginScreen.swift */; };
+		7546ACC328A7DE9E00C5D684 /* ButtonForLoginScreens.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7546ACC228A7DE9E00C5D684 /* ButtonForLoginScreens.swift */; };
 		7584D5AB2898524100688E56 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7584D5AA2898524100688E56 /* ContentView.swift */; };
+		75A6ED8628A8F2F30003DCE9 /* CredentialsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A6ED8528A8F2F30003DCE9 /* CredentialsModel.swift */; };
+		75A6ED8928A8F3970003DCE9 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A6ED8828A8F3970003DCE9 /* APIService.swift */; };
+		75A6ED8B28A8F5D40003DCE9 /* SuperSecretExtantionToHideKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A6ED8A28A8F5D40003DCE9 /* SuperSecretExtantionToHideKeyboard.swift */; };
+		75A6ED8D28A8F87B0003DCE9 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A6ED8C28A8F87B0003DCE9 /* LoginViewModel.swift */; };
+		75FEBF4928AD608800486814 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 75FEBF4828AD608700486814 /* GoogleService-Info.plist */; };
+		DBCC365FE77C219C972DB1D4 /* Pods_FSUIP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C1E7E7FD8CAAC5D7F3587BD /* Pods_FSUIP.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3C1E7E7FD8CAAC5D7F3587BD /* Pods_FSUIP.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FSUIP.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7522B7FA289E77E5008C0476 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
+		752D98A8289FD490000EDDD8 /* ShopingCartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopingCartView.swift; sourceTree = "<group>"; };
+		752D98AA289FD4B9000EDDD8 /* ProductsBookmarkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsBookmarkView.swift; sourceTree = "<group>"; };
 		753970E4287F52D90056937F /* FSUIP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FSUIP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		753970E7287F52D90056937F /* FSUIPApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSUIPApp.swift; sourceTree = "<group>"; };
 		753970E9287F52D90056937F /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -27,8 +46,21 @@
 		753970F0287F52DA0056937F /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		753970F3287F52DA0056937F /* FSUIP.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FSUIP.xcdatamodel; sourceTree = "<group>"; };
 		753AAA89289702D1008F8BB2 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
-		7584D5A828984BEB00688E56 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		753EB63028B0F0C70097E4FA /* AppUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUser.swift; sourceTree = "<group>"; };
+		753EB63428B12F7E0097E4FA /* KeyCheinStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyCheinStorage.swift; sourceTree = "<group>"; };
+		7546ACB928A7D89800C5D684 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		7546ACBB28A7DC4A00C5D684 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		7546ACBD28A7DC5C00C5D684 /* ForgotPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordView.swift; sourceTree = "<group>"; };
+		7546ACC028A7DDDF00C5D684 /* TextFieldForLoginScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldForLoginScreen.swift; sourceTree = "<group>"; };
+		7546ACC228A7DE9E00C5D684 /* ButtonForLoginScreens.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonForLoginScreens.swift; sourceTree = "<group>"; };
 		7584D5AA2898524100688E56 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		75A6ED8528A8F2F30003DCE9 /* CredentialsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredentialsModel.swift; sourceTree = "<group>"; };
+		75A6ED8828A8F3970003DCE9 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		75A6ED8A28A8F5D40003DCE9 /* SuperSecretExtantionToHideKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperSecretExtantionToHideKeyboard.swift; sourceTree = "<group>"; };
+		75A6ED8C28A8F87B0003DCE9 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		75FEBF4828AD608700486814 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../GoogleService-Info.plist"; sourceTree = "<group>"; };
+		8F4BB3EFB34ADC5A107819E9 /* Pods-FSUIP.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FSUIP.release.xcconfig"; path = "Target Support Files/Pods-FSUIP/Pods-FSUIP.release.xcconfig"; sourceTree = "<group>"; };
+		A73BB3AC5541E32A49707DF0 /* Pods-FSUIP.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FSUIP.debug.xcconfig"; path = "Target Support Files/Pods-FSUIP/Pods-FSUIP.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,6 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DBCC365FE77C219C972DB1D4 /* Pods_FSUIP.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -47,6 +80,8 @@
 			children = (
 				753970E6287F52D90056937F /* FSUIP */,
 				753970E5287F52D90056937F /* Products */,
+				B6F044CCEAAD897C8F7822D7 /* Pods */,
+				C6E317F72B666472240CFCC1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -62,12 +97,14 @@
 			isa = PBXGroup;
 			children = (
 				753970E7287F52D90056937F /* FSUIPApp.swift */,
-				75D16E652895A8190030D52B /* ViewModel */,
-				75D16E642895A8100030D52B /* Views */,
 				75D16E622895A7F40030D52B /* Model */,
+				75D16E642895A8100030D52B /* Views */,
+				75D16E652895A8190030D52B /* ViewModel */,
+				75A6ED8728A8F34E0003DCE9 /* Services */,
 				753970EB287F52DA0056937F /* Assets.xcassets */,
 				753970F0287F52DA0056937F /* Persistence.swift */,
 				753970F2287F52DA0056937F /* FSUIP.xcdatamodeld */,
+				75FEBF4828AD608700486814 /* GoogleService-Info.plist */,
 				753970ED287F52DA0056937F /* Preview Content */,
 			);
 			path = FSUIP;
@@ -81,9 +118,41 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		7546ACB828A7D87700C5D684 /* LoginViews */ = {
+			isa = PBXGroup;
+			children = (
+				7546ACBF28A7DD1F00C5D684 /* ReusableViewLoginScreen */,
+				7546ACB928A7D89800C5D684 /* LoginView.swift */,
+				7546ACBB28A7DC4A00C5D684 /* SignUpView.swift */,
+				7546ACBD28A7DC5C00C5D684 /* ForgotPasswordView.swift */,
+			);
+			path = LoginViews;
+			sourceTree = "<group>";
+		};
+		7546ACBF28A7DD1F00C5D684 /* ReusableViewLoginScreen */ = {
+			isa = PBXGroup;
+			children = (
+				7546ACC028A7DDDF00C5D684 /* TextFieldForLoginScreen.swift */,
+				7546ACC228A7DE9E00C5D684 /* ButtonForLoginScreens.swift */,
+			);
+			path = ReusableViewLoginScreen;
+			sourceTree = "<group>";
+		};
+		75A6ED8728A8F34E0003DCE9 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				75A6ED8828A8F3970003DCE9 /* APIService.swift */,
+				75A6ED8A28A8F5D40003DCE9 /* SuperSecretExtantionToHideKeyboard.swift */,
+				753EB63428B12F7E0097E4FA /* KeyCheinStorage.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		75D16E622895A7F40030D52B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				75A6ED8528A8F2F30003DCE9 /* CredentialsModel.swift */,
+				753EB63028B0F0C70097E4FA /* AppUser.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -91,10 +160,13 @@
 		75D16E642895A8100030D52B /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				753970E9287F52D90056937F /* MainView.swift */,
-				753AAA89289702D1008F8BB2 /* ProfileView.swift */,
-				7584D5A828984BEB00688E56 /* HeaderView.swift */,
+				7546ACB828A7D87700C5D684 /* LoginViews */,
 				7584D5AA2898524100688E56 /* ContentView.swift */,
+				753970E9287F52D90056937F /* MainView.swift */,
+				752D98AA289FD4B9000EDDD8 /* ProductsBookmarkView.swift */,
+				752D98A8289FD490000EDDD8 /* ShopingCartView.swift */,
+				753AAA89289702D1008F8BB2 /* ProfileView.swift */,
+				7522B7FA289E77E5008C0476 /* TabBarView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -102,8 +174,26 @@
 		75D16E652895A8190030D52B /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				75A6ED8C28A8F87B0003DCE9 /* LoginViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		B6F044CCEAAD897C8F7822D7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A73BB3AC5541E32A49707DF0 /* Pods-FSUIP.debug.xcconfig */,
+				8F4BB3EFB34ADC5A107819E9 /* Pods-FSUIP.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		C6E317F72B666472240CFCC1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3C1E7E7FD8CAAC5D7F3587BD /* Pods_FSUIP.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -113,9 +203,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 753970F7287F52DA0056937F /* Build configuration list for PBXNativeTarget "FSUIP" */;
 			buildPhases = (
+				5963AD47139160377EA199FD /* [CP] Check Pods Manifest.lock */,
 				753970E0287F52D90056937F /* Sources */,
 				753970E1287F52D90056937F /* Frameworks */,
 				753970E2287F52D90056937F /* Resources */,
+				15D8E6DCB74962389CB529E7 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -150,6 +242,8 @@
 				Base,
 			);
 			mainGroup = 753970DB287F52D90056937F;
+			packageReferences = (
+			);
 			productRefGroup = 753970E5287F52D90056937F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -166,22 +260,78 @@
 			files = (
 				753970EF287F52DA0056937F /* Preview Assets.xcassets in Resources */,
 				753970EC287F52DA0056937F /* Assets.xcassets in Resources */,
+				75FEBF4928AD608800486814 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		15D8E6DCB74962389CB529E7 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FSUIP/Pods-FSUIP-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FSUIP/Pods-FSUIP-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FSUIP/Pods-FSUIP-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5963AD47139160377EA199FD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-FSUIP-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		753970E0287F52D90056937F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				75A6ED8928A8F3970003DCE9 /* APIService.swift in Sources */,
+				752D98AB289FD4B9000EDDD8 /* ProductsBookmarkView.swift in Sources */,
+				7546ACC128A7DDDF00C5D684 /* TextFieldForLoginScreen.swift in Sources */,
+				7546ACC328A7DE9E00C5D684 /* ButtonForLoginScreens.swift in Sources */,
 				753970F1287F52DA0056937F /* Persistence.swift in Sources */,
-				7584D5A928984BEB00688E56 /* HeaderView.swift in Sources */,
+				7522B7FB289E77E5008C0476 /* TabBarView.swift in Sources */,
 				7584D5AB2898524100688E56 /* ContentView.swift in Sources */,
+				75A6ED8628A8F2F30003DCE9 /* CredentialsModel.swift in Sources */,
+				7546ACBC28A7DC4A00C5D684 /* SignUpView.swift in Sources */,
+				75A6ED8B28A8F5D40003DCE9 /* SuperSecretExtantionToHideKeyboard.swift in Sources */,
 				753970F4287F52DA0056937F /* FSUIP.xcdatamodeld in Sources */,
+				753EB63528B12F7E0097E4FA /* KeyCheinStorage.swift in Sources */,
 				753AAA8A289702D1008F8BB2 /* ProfileView.swift in Sources */,
 				753970EA287F52D90056937F /* MainView.swift in Sources */,
+				7546ACBE28A7DC5C00C5D684 /* ForgotPasswordView.swift in Sources */,
+				752D98A9289FD490000EDDD8 /* ShopingCartView.swift in Sources */,
+				753EB63128B0F0C70097E4FA /* AppUser.swift in Sources */,
+				7546ACBA28A7D89800C5D684 /* LoginView.swift in Sources */,
+				75A6ED8D28A8F87B0003DCE9 /* LoginViewModel.swift in Sources */,
 				753970E8287F52D90056937F /* FSUIPApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -239,7 +389,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -293,7 +443,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -305,17 +455,20 @@
 		};
 		753970F8287F52DA0056937F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A73BB3AC5541E32A49707DF0 /* Pods-FSUIP.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"FSUIP/Preview Content\"";
+				DEVELOPMENT_TEAM = MXZHWFKZH2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -323,7 +476,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = PSPrjct.FSUIP;
+				PRODUCT_BUNDLE_IDENTIFIER = com.PSPrjct.FSUIP;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -333,17 +486,20 @@
 		};
 		753970F9287F52DA0056937F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8F4BB3EFB34ADC5A107819E9 /* Pods-FSUIP.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"FSUIP/Preview Content\"";
+				DEVELOPMENT_TEAM = MXZHWFKZH2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -351,7 +507,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = PSPrjct.FSUIP;
+				PRODUCT_BUNDLE_IDENTIFIER = com.PSPrjct.FSUIP;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
