@@ -29,6 +29,11 @@
 		75A6ED8928A8F3970003DCE9 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A6ED8828A8F3970003DCE9 /* APIService.swift */; };
 		75A6ED8B28A8F5D40003DCE9 /* SuperSecretExtantionToHideKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A6ED8A28A8F5D40003DCE9 /* SuperSecretExtantionToHideKeyboard.swift */; };
 		75A6ED8D28A8F87B0003DCE9 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A6ED8C28A8F87B0003DCE9 /* LoginViewModel.swift */; };
+		75D9A5BE28BD1DA7006863FC /* ProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D9A5BD28BD1DA7006863FC /* ProductModel.swift */; };
+		75D9A5C028BD2BC7006863FC /* CatgoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D9A5BF28BD2BC7006863FC /* CatgoryView.swift */; };
+		75D9A5C228BD340F006863FC /* CategotyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D9A5C128BD340F006863FC /* CategotyModel.swift */; };
+		75D9A5C428BE7DAB006863FC /* CategoriesRowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D9A5C328BE7DAB006863FC /* CategoriesRowViewModel.swift */; };
+		75D9A5C628BE7E22006863FC /* TabBarPageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D9A5C528BE7E22006863FC /* TabBarPageModel.swift */; };
 		75FEBF4928AD608800486814 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 75FEBF4828AD608700486814 /* GoogleService-Info.plist */; };
 		DBCC365FE77C219C972DB1D4 /* Pods_FSUIP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C1E7E7FD8CAAC5D7F3587BD /* Pods_FSUIP.framework */; };
 /* End PBXBuildFile section */
@@ -58,6 +63,11 @@
 		75A6ED8828A8F3970003DCE9 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		75A6ED8A28A8F5D40003DCE9 /* SuperSecretExtantionToHideKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperSecretExtantionToHideKeyboard.swift; sourceTree = "<group>"; };
 		75A6ED8C28A8F87B0003DCE9 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		75D9A5BD28BD1DA7006863FC /* ProductModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductModel.swift; sourceTree = "<group>"; };
+		75D9A5BF28BD2BC7006863FC /* CatgoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatgoryView.swift; sourceTree = "<group>"; };
+		75D9A5C128BD340F006863FC /* CategotyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategotyModel.swift; sourceTree = "<group>"; };
+		75D9A5C328BE7DAB006863FC /* CategoriesRowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesRowViewModel.swift; sourceTree = "<group>"; };
+		75D9A5C528BE7E22006863FC /* TabBarPageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarPageModel.swift; sourceTree = "<group>"; };
 		75FEBF4828AD608700486814 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8F4BB3EFB34ADC5A107819E9 /* Pods-FSUIP.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FSUIP.release.xcconfig"; path = "Target Support Files/Pods-FSUIP/Pods-FSUIP.release.xcconfig"; sourceTree = "<group>"; };
 		A73BB3AC5541E32A49707DF0 /* Pods-FSUIP.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FSUIP.debug.xcconfig"; path = "Target Support Files/Pods-FSUIP/Pods-FSUIP.debug.xcconfig"; sourceTree = "<group>"; };
@@ -98,8 +108,8 @@
 			children = (
 				753970E7287F52D90056937F /* FSUIPApp.swift */,
 				75D16E622895A7F40030D52B /* Model */,
-				75D16E642895A8100030D52B /* Views */,
 				75D16E652895A8190030D52B /* ViewModel */,
+				75D16E642895A8100030D52B /* Views */,
 				75A6ED8728A8F34E0003DCE9 /* Services */,
 				753970EB287F52DA0056937F /* Assets.xcassets */,
 				753970F0287F52DA0056937F /* Persistence.swift */,
@@ -153,6 +163,9 @@
 			children = (
 				75A6ED8528A8F2F30003DCE9 /* CredentialsModel.swift */,
 				753EB63028B0F0C70097E4FA /* AppUser.swift */,
+				75D9A5BD28BD1DA7006863FC /* ProductModel.swift */,
+				75D9A5C128BD340F006863FC /* CategotyModel.swift */,
+				75D9A5C528BE7E22006863FC /* TabBarPageModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -167,6 +180,7 @@
 				752D98A8289FD490000EDDD8 /* ShopingCartView.swift */,
 				753AAA89289702D1008F8BB2 /* ProfileView.swift */,
 				7522B7FA289E77E5008C0476 /* TabBarView.swift */,
+				75D9A5BF28BD2BC7006863FC /* CatgoryView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -175,6 +189,7 @@
 			isa = PBXGroup;
 			children = (
 				75A6ED8C28A8F87B0003DCE9 /* LoginViewModel.swift */,
+				75D9A5C328BE7DAB006863FC /* CategoriesRowViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -319,19 +334,24 @@
 				7546ACC328A7DE9E00C5D684 /* ButtonForLoginScreens.swift in Sources */,
 				753970F1287F52DA0056937F /* Persistence.swift in Sources */,
 				7522B7FB289E77E5008C0476 /* TabBarView.swift in Sources */,
+				75D9A5C228BD340F006863FC /* CategotyModel.swift in Sources */,
 				7584D5AB2898524100688E56 /* ContentView.swift in Sources */,
+				75D9A5C628BE7E22006863FC /* TabBarPageModel.swift in Sources */,
 				75A6ED8628A8F2F30003DCE9 /* CredentialsModel.swift in Sources */,
 				7546ACBC28A7DC4A00C5D684 /* SignUpView.swift in Sources */,
 				75A6ED8B28A8F5D40003DCE9 /* SuperSecretExtantionToHideKeyboard.swift in Sources */,
+				75D9A5C028BD2BC7006863FC /* CatgoryView.swift in Sources */,
 				753970F4287F52DA0056937F /* FSUIP.xcdatamodeld in Sources */,
 				753EB63528B12F7E0097E4FA /* KeyCheinStorage.swift in Sources */,
 				753AAA8A289702D1008F8BB2 /* ProfileView.swift in Sources */,
 				753970EA287F52D90056937F /* MainView.swift in Sources */,
 				7546ACBE28A7DC5C00C5D684 /* ForgotPasswordView.swift in Sources */,
+				75D9A5C428BE7DAB006863FC /* CategoriesRowViewModel.swift in Sources */,
 				752D98A9289FD490000EDDD8 /* ShopingCartView.swift in Sources */,
 				753EB63128B0F0C70097E4FA /* AppUser.swift in Sources */,
 				7546ACBA28A7D89800C5D684 /* LoginView.swift in Sources */,
 				75A6ED8D28A8F87B0003DCE9 /* LoginViewModel.swift in Sources */,
+				75D9A5BE28BD1DA7006863FC /* ProductModel.swift in Sources */,
 				753970E8287F52D90056937F /* FSUIPApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

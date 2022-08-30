@@ -6,32 +6,34 @@
 //
 
 import SwiftUI
+import FirebaseAuth
 
 struct ProfileView: View {
-    @EnvironmentObject var authentication: Authentication
+    @AppStorage("login_Status") var status = true
+    @StateObject var model = CredentialsModel()
     @State private var isAnimating = false
-    @State private var showProgress = false
-    var foreverAnimation: Animation {
-        Animation.linear(duration: 2.0)
-            .repeatForever(autoreverses: false)
-        
-    }
+    
     
     var body: some View {
             ZStack {
-                ScrollView {
+                ScrollView(.vertical, showsIndicators: false) {
                     VStack {
                         Image("pepegaProfile")
                             .resizable()
-                            .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height / 2)
-                            .rotationEffect(Angle(degrees: self.isAnimating ? 360 : 0.0))
-                            .animation(self.isAnimating ? foreverAnimation : .default)
-                            .onAppear { self.isAnimating = true }
-                            .onDisappear { self.isAnimating = false }
+                            .overlay(Circle().stroke(Color.purple, lineWidth: 5))
+                            .shadow(radius: 10)
+                            .frame(width: UIScreen.main.bounds.width - 30, height: UIScreen.main.bounds.height / 2.2)
+                            .scaledToFill()
+                            .clipShape(Circle())
+
                         Spacer()
-                            .frame(height: 50)
+                            .frame(height: 200)
+                        
+                        Text("залогинился как \(Auth.auth().currentUser?.email ?? "")")
+                        Spacer()
+                        
                         Button("Выйди и зайди нормально!!!") {
-                            authentication.updateValidation(success: false)
+                            model.logOut()
                         }
                         
                     }
@@ -42,8 +44,8 @@ struct ProfileView: View {
     }
 }
 
-struct ProfileView_Previews: PreviewProvider {
-    static var previews: some View {
-        ProfileView()
-    }
-}
+//struct ProfileView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ProfileView()
+//    }
+//}

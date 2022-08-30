@@ -10,20 +10,26 @@ import SwiftUI
 import CoreData
 
 struct MainView: View {
-    @State private var isShowingProfileView = false
+   // @State private var isShowingProfileView = false
     @State private var selectedCategory: Int = 0
- //   @State private var showSearchBar = false
     @State private var serchText = ""
     @State private var isSearching = false
-    @State private var textFieldId: String = UUID().uuidString
+
     private let promotedCtegories = ["Акции", "Хит продаж", "Новинки"]
-    @State private var categories = ["Собаки", "Кошки", "Грызуны", "Птицы", "Рыбки", "Другие"]
+    private var categories = [
+        CatrgoryModel(title: "Собаки", image: Image("category_1")),
+        CatrgoryModel(title: "Кошки", image: Image("category_2")),
+        CatrgoryModel(title: "Грызуны", image: Image("category_3")),
+        CatrgoryModel(title: "Птицы", image: Image("category_4")),
+        CatrgoryModel(title: "Рыбки", image: Image("category_5")),
+        CatrgoryModel(title: "Другие", image: Image("category_6"))]
+    
     var body: some View {
-            ZStack {
+            VStack {
+                SearchBarView(serchText: $serchText, isSearching: $isSearching)
                 ScrollView(showsIndicators: false) {
                     VStack {
                         
-                        SearchBarView(serchText: $serchText, isSearching: $isSearching, textFieldId: $textFieldId)
                         
                         VStack {
                             Text("Популярные бренды")
@@ -85,8 +91,12 @@ struct MainView: View {
                                 Divider()
                                     .background(Color.black)
                                     .padding(.horizontal, 16)
-                                ForEach(0 ..< categories.count, id: \.self) { i in
-                                    CategoriesView(text: categories[i], image: Image("category_\(i + 1)"))
+ //                               ForEach(0 ..< categories.count, id: \.self) { i in
+//                                    CategoriesRow(text: categories[i], image: Image("category_\(i + 1)"), catrgory: <#CatrgoryModel#>)
+//                                }
+                                ForEach(categories) { category in
+                                    CategoriesRowViewModel( catrgory: category)
+
                                 }
                             }
                         }
@@ -111,22 +121,19 @@ struct MainView_Previews: PreviewProvider {
 struct SearchBarView: View {
     @Binding var serchText: String
     @Binding var isSearching: Bool
-  //  @Binding var showSearchBar: Bool
-    @Binding var textFieldId: String
+
     var body: some View {
         
-     //   if showSearchBar {
-            ScrollView {
+          //  ScrollView {
                 HStack {
                     TextField("Что ищем?", text: $serchText)
                         .padding(.leading, 29)
-                        .id(textFieldId)
                 }
                 .cornerRadius(20)
                 .padding(10)
                 .padding(.horizontal)
-                .foregroundColor(.black)
                 .background(.ultraThinMaterial)
+                .foregroundColor(.black)
                 .cornerRadius(15)
                 .padding(.horizontal)
                 .shadow(color: Color.purple.opacity(0.5), radius: 4, x: 6, y: 3)
@@ -161,8 +168,7 @@ struct SearchBarView: View {
                     Divider()
                         .background(Color.black)
                 }
-            }
-      //  }
+          //  }
     }
 }
 
@@ -289,20 +295,21 @@ struct ProductCardView: View {
     
 }
 
-struct CategoriesView: View {
-    let text: String
-    let image: Image
+struct CategoriesRow: View {
+    
+    var catrgory: CatrgoryModel
+    
     var body: some View {
         Button {
        //some action
         } label: {
             VStack {
                 HStack {
-                    image
+                    catrgory.image
                         .frame(width: 32, height: 32)
                     Spacer()
                         .frame(width: 24)
-                    Text(text)
+                    Text(catrgory.title)
                         .font(.system(size: 16))
                         .foregroundColor(.black)
                     Spacer()

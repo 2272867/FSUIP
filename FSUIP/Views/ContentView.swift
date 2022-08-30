@@ -8,16 +8,29 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @AppStorage("login_Status") var status = false
+    
+    @StateObject var model = CredentialsModel()
 
-    @State var tabBarPages: [TabBarPage] = [
-        TabBarPage(page: MainView(), icon: "house", fillColor: .purple),
-        TabBarPage(page: ProductsBookmarkView(), icon: "heart", fillColor: .red),
-        TabBarPage(page: ShopingCartView(), icon: "cart", fillColor: .orange),
-        TabBarPage(page: ProfileView(), icon: "person", fillColor: .blue)
-    ]
+    @State var tabBarPages: [TabBarPageModel] = [
+        TabBarPageModel(page: MainView(), icon: "house", fillColor: .purple),
+        TabBarPageModel(page: ProductsBookmarkView(), icon: "heart", fillColor: .red),
+        TabBarPageModel(page: ShopingCartView(), icon: "cart", fillColor: .orange),
+        TabBarPageModel(page: ProfileView(), icon: "person", fillColor: .blue)]
+    
         var body: some View {
-            TabBarView(pages: $tabBarPages)
-        }
+            if status {
+                
+                TabBarView(pages: $tabBarPages)
+                
+                } else {
+                    
+                    LoginView(model: model)
+                }
+                
+            }
+            
 }
     
 

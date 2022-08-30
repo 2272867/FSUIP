@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct ForgotPasswordView: View {
-    @State private var email: String = ""
+    @ObservedObject var model: CredentialsModel
+  //  @State private var email: String = ""
     @Binding var presentPasswordRecoverySheet: Bool
     
     var body: some View {
@@ -22,30 +23,40 @@ struct ForgotPasswordView: View {
                 .font(.system(size: 16))
             
             VStack(spacing: 10.0) {
-                TextFieldForLoginScreen(value: self.$email, placeholder: "Email", icon: Image(systemName: "at"), keyboardType: .emailAddress)
+                TextFieldForLoginScreen(textValue: $model.resetPassword, placeholder: "Email", icon: "at", keyboardType: .emailAddress)
                 
                 ButtonForLoginScreens(text: "Сбросить пароль") {
-                    
+                    model.sendPasswordReset()
                 }
             }
             
             Button(action: {
                 self.presentPasswordRecoverySheet.toggle()
             }) {
-                Text("Выйти")
+                Text("Выйти на главный экран.")
                     .font(.system(size: 16))
                     .foregroundColor(Color.purple)
             }
         }
+        .alert(isPresented: $model.alert, content: {
+            Alert(title: Text("Внимание"), message: Text(model.alertMsg), dismissButton: .destructive(Text("OK"), action: {
+                if model.alertMsg == "На ваш email выслано письмо для сброса пароля." {
+                    
+                    self.presentPasswordRecoverySheet = false
+//                    model.resetPassword = ""
+                }
+            }))
+        })
         .onTapGesture {
             UIApplication.shared.endEditing()
+            
         }
         .padding()
     }
 }
 
-struct ForgotPasswordView_Previews: PreviewProvider {
-    static var previews: some View {
-        ForgotPasswordView(presentPasswordRecoverySheet: .constant(false))
-    }
-}
+//struct ForgotPasswordView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ForgotPasswordView(presentPasswordRecoverySheet: .constant(false))
+//    }
+//}

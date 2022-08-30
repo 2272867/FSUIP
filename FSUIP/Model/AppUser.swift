@@ -6,26 +6,12 @@
 //
 
 import SwiftUI
-<<<<<<< Updated upstream
-
-struct AppUser: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
-}
-
-struct AppUser_Previews: PreviewProvider {
-    static var previews: some View {
-        AppUser()
-    }
-}
-=======
 import FirebaseFirestore
 import Foundation
 import FirebaseAuth
 
-struct AppUser: Identifiable, Codable {
-    var id: String?
+struct AppUser: Identifiable, Codable, Equatable {
+    var id: String = UUID().uuidString
     var username: String?
     var password: String?
     var userId: String?
@@ -34,10 +20,6 @@ struct AppUser: Identifiable, Codable {
     var profileImage: Data?
     var locationAddress: String?
     
-    func loginUser() {
-        Auth.auth().signIn(withEmail: email!, password: password!)
-    }
 }
 
 
->>>>>>> Stashed changes

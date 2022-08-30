@@ -7,28 +7,19 @@
 
 import SwiftUI
 
-struct TabBarPage: Identifiable {
-    var id = UUID()
-    var page: Any
-    var icon: String
-    var fillColor: Color
-}
-
-
 struct TabBarView: View {
 
     @State var selectedTab = "house"
-    @Binding var pages: [TabBarPage]
-    init(pages: Binding<[TabBarPage]>) {
+    @Binding var pages: [TabBarPageModel]
+    init(pages: Binding<[TabBarPageModel]>) {
         UITabBar.appearance().isHidden = true
         self._pages = pages
     }
     
     var body: some View {
+        
         ZStack(alignment: .bottom) {
-            
             TabView(selection: $selectedTab) {
-                
                 ForEach(pages) { item in
                     AnyView(_fromValue: item.page)
                         .tabItem {
@@ -71,15 +62,3 @@ struct TabBarView: View {
         }
     }
 }
-
-struct TabBarView_Previews: PreviewProvider {
-    static var previews: some View {
-        TabBarView(pages: .constant([
-            TabBarPage(page: MainView(), icon: "house", fillColor: .purple),
-            TabBarPage(page: LoginView(), icon: "heart", fillColor: .red),
-            TabBarPage(page: ShopingCartView(), icon: "cart", fillColor: .green),
-            TabBarPage(page: ProfileView(), icon: "person", fillColor: .blue)
-        ]))
-    }
-}
-

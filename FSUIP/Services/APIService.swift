@@ -6,20 +6,23 @@
 //
 
 import Foundation
+import FirebaseAuth
+import SwiftUI
 
 class APIService {
-    static let shared = APIService()
-    enum APIError: Error {
-        case error
-    }
     
-    func login(credentials: Credentials, complition : @escaping (Result<Bool, APIError>) -> Void) {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            if credentials.password == "password" {
-                complition(.success(true))
-            } else {
-                complition(.failure(APIError.error))
-            }
-        }
-    }
+//    @ObservedObject var loginVM = LoginViewModel()
+//    static let shared = APIService()
+//
+//    
+//    func login(credentials: CredentialsModel, complition : @escaping (Result<Bool, Authentication.AuthenticationError>) -> Void) {
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+//            if credentials.password == "password" && credentials.email == "hi" {
+//                complition(.success(true))
+//            } else {
+//                complition(.failure(.invalidCreditials))
+//            }
+//        }
+//    }
 }
+

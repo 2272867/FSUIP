@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct TextFieldForLoginScreen: View {
-    @Binding var value: String
+    @Binding var textValue: String
     
-    var placeholder = "Placeholder"
-    var icon = Image(systemName: "person.crop.circle")
+    var placeholder: String
+    var icon: String
     var isSecure: Bool = false
     var keyboardType: UIKeyboardType = .default
     var onEditingChanged: ((Bool) -> ()) = {_ in}
@@ -19,19 +19,20 @@ struct TextFieldForLoginScreen: View {
     var body: some View {
         HStack {
             if isSecure{
-                SecureField(placeholder, text: self.$value, onCommit: {
+                SecureField(placeholder, text: $textValue, onCommit: {
                     self.onEditingChanged(false)
                 })
                 .padding()
             } else {
-                TextField(placeholder, text: self.$value, onEditingChanged: { flag in
+                TextField(placeholder, text: $textValue, onEditingChanged: { flag in
                     self.onEditingChanged(flag)
                 })
                 .padding()
                 .keyboardType(keyboardType)
             }
             
-            icon.imageScale(.large)
+            Image(systemName: icon)
+                .imageScale(.large)
                 .padding()
                 .foregroundColor(.purple.opacity(0.7))
         }
@@ -42,8 +43,8 @@ struct TextFieldForLoginScreen: View {
     }
 }
 
-struct LoginScreenTextField_Previews: PreviewProvider {
-    static var previews: some View {
-        TextFieldForLoginScreen(value: .constant(""))
-    }
-}
+//struct LoginScreenTextField_Previews: PreviewProvider {
+//    static var previews: some View {
+//        TextFieldForLoginScreen(textValue: $textValue, placeholder: "123", icon: "")
+//    }
+//}
