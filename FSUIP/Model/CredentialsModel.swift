@@ -68,25 +68,21 @@ final class CredentialsModel: BaseCredentials, ObservableObject {
                 self.alert.toggle()
                 return
             }
+            
             withAnimation {
                 self.status = true
             }
         }
-        
-        
-        //тут есть вопросы по реализация, исправлять нужно
-        if ((self.user?.isEmailVerified) != true) {
-            
-            self.alertMsg = "Пожалуйста, подтвердите email"
-            self.alert.toggle()
-            
-            try! Auth.auth().signOut()
-            
-            return
-        }
-        
-       
-        
+//        //тут есть вопросы по реализация, исправлять нужно
+//        if (user?.isEmailVerified ?? false) {
+//
+//            self.alertMsg = "Пожалуйста, подтвердите email"
+//            self.alert.toggle()
+//
+//            self.logOut()
+//
+//            return
+//        }
     }
     
     func singUp() {

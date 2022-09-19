@@ -25,26 +25,27 @@ struct LoginView: View {
                 Image("petShopLogo")
                     .resizable()
                     .frame(width: 201, height: 113)
+                    .invertOnDarkTheme()
                 
                 Text("Войдите в свой аккаунт:")
                     .font(.system(size: 16))
                 
                 VStack(spacing: 10.0) {
-                    TextFieldForLoginScreen(textValue: $model.email, placeholder: "Email", icon: "at", keyboardType: .emailAddress, onEditingChanged: { flag in withAnimation { self.formOffset = flag ? 0 : 0 }
+                    TextFieldForLoginScreenViewModel(textValue: $model.email, placeholder: "Email", icon: "at", keyboardType: .emailAddress, onEditingChanged: { flag in withAnimation { self.formOffset = flag ? 0 : 0 }
                     })
                     
                     
-                    TextFieldForLoginScreen(textValue: $model.password, placeholder: "Пароль", icon: "lock", isSecure: true, onEditingChanged: { flag in withAnimation {
+                    TextFieldForLoginScreenViewModel(textValue: $model.password, placeholder: "Пароль", icon: "eye", isSecure: true, onEditingChanged: { flag in withAnimation {
                         self.formOffset = flag ? -200 : 0
-                        }
+                    }
                     })
                     
-                    ButtonForLoginScreens(text: "Войти", action: {
+                    ButtonForLoginScreensViewModel(text: "Войти", action: {
                         model.login()
-
+                        
                     })
                 }
-                                
+                
                 Button(action: {
                     self.presentSignupSheet.toggle()
                 }) {
@@ -69,7 +70,7 @@ struct LoginView: View {
             .alert(isPresented: $model.alert, content: {
                 Alert(title: Text("Внимание"), message: Text(model.alertMsg), dismissButton: .destructive(Text("OK")))
             })
-
+            
             .onTapGesture { UIApplication.shared.endEditing() }
             .padding()
             .offset(y: self.formOffset)

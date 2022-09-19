@@ -27,4 +27,33 @@ enum KeyCheinStorage {
 //            return false
 //        }
 //    }
+    
+    
+    //            if isShowingProductDetails {
+    //                FullDetailsProductViewModel(isShowingProductDetails: $isShowingProductDetails)
+    //
+    //            }
+    //
+    //                            Picker(
+    //                                selection: $selectedCategory,
+    //                                label: Text("Picker"),
+    //                                content: {
+    //                                    ForEach(filterCategories.indices) { index in
+    //                                        Text(filterCategories[index])
+    //                                            .tag(filterCategories[index])
+    //                                    }
+    //                                }).pickerStyle(SegmentedPickerStyle())
+    
+    
+    
+    //    @State var selectedCategory: String = "Собаки"
+    
+    //    init() {
+    //        UISegmentedControl.appearance().selectedSegmentTintColor = UIColor.purple.withAlphaComponent(0.5)
+    //
+    //        let attributes: [NSAttributedString.Key:Any] = [
+    //            .foregroundColor : UIColor.white
+    //        ]
+    //        UISegmentedControl.appearance().setTitleTextAttributes(attributes, for: .selected)
+    //    }
 }

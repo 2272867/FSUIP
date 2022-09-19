@@ -9,7 +9,6 @@ import Foundation
 import SwiftUI
 
 struct TabBarPageModel: Identifiable {
-    
     var id = UUID()
     var page: Any
     var icon: String

@@ -10,6 +10,9 @@ target 'FSUIP' do
   pod 'FirebaseFirestore'
   pod 'FirebaseStorage'
   pod 'FirebaseDatabase'
+  pod 'FirebaseFirestoreSwift'
   pod 'SwiftKeychainWrapper'
+  pod 'SDWebImageSwiftUI'
+
   
 end

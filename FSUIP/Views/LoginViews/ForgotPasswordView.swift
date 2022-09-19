@@ -9,7 +9,6 @@ import SwiftUI
 
 struct ForgotPasswordView: View {
     @ObservedObject var model: CredentialsModel
-  //  @State private var email: String = ""
     @Binding var presentPasswordRecoverySheet: Bool
     
     var body: some View {
@@ -23,9 +22,9 @@ struct ForgotPasswordView: View {
                 .font(.system(size: 16))
             
             VStack(spacing: 10.0) {
-                TextFieldForLoginScreen(textValue: $model.resetPassword, placeholder: "Email", icon: "at", keyboardType: .emailAddress)
+                TextFieldForLoginScreenViewModel(textValue: $model.resetPassword, placeholder: "Email", icon: "at", keyboardType: .emailAddress)
                 
-                ButtonForLoginScreens(text: "Сбросить пароль") {
+                ButtonForLoginScreensViewModel(text: "Сбросить пароль") {
                     model.sendPasswordReset()
                 }
             }
@@ -43,7 +42,7 @@ struct ForgotPasswordView: View {
                 if model.alertMsg == "На ваш email выслано письмо для сброса пароля." {
                     
                     self.presentPasswordRecoverySheet = false
-//                    model.resetPassword = ""
+                    //                    model.resetPassword = ""
                 }
             }))
         })

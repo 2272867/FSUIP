@@ -6,18 +6,38 @@
 //
 
 import Foundation
-import FirebaseAuth
 import SwiftUI
 import FirebaseFirestore
+import FirebaseFirestoreSwift
 
-struct ProductModel: Identifiable, Equatable {
-    let id: String = UUID().uuidString
-    let name: String
-    let description: String
-    let imageName: String?
-    let price: Double
-    let discont: Int
-    let productBrand: String
-    let category: String
-    let productWeight: Double
+
+struct ProductModel: Identifiable, Codable {
+    
+    @DocumentID var id: String?
+    var title: String
+    var description: String
+    var image: String
+    var price: Double
+    var productBrand: String
+    var category: String
+    var productWeight: Double
+    
+    enum CodingKeys: String, CodingKey {
+        case id
+        case title
+        case description
+        case image
+        case price
+        case productBrand
+        case category
+        case productWeight
+    }
+}
+
+struct Order: Identifiable, Codable {
+  @DocumentID var id: String?
+  var username: String
+  var title: String
+  var price: Double
+  var image: String
 }

@@ -10,26 +10,27 @@ import SwiftUI
 import CoreData
 
 struct MainView: View {
-   // @State private var isShowingProfileView = false
+    // @State private var isShowingProfileView = false
+    // @State 
     @State private var selectedCategory: Int = 0
     @State private var serchText = ""
     @State private var isSearching = false
-
+    
     private let promotedCtegories = ["Акции", "Хит продаж", "Новинки"]
     private var categories = [
-        CatrgoryModel(title: "Собаки", image: Image("category_1")),
-        CatrgoryModel(title: "Кошки", image: Image("category_2")),
-        CatrgoryModel(title: "Грызуны", image: Image("category_3")),
-        CatrgoryModel(title: "Птицы", image: Image("category_4")),
-        CatrgoryModel(title: "Рыбки", image: Image("category_5")),
-        CatrgoryModel(title: "Другие", image: Image("category_6"))]
+        CategoryModel(title: "Собаки", image: Image("category_1"), presentPage: ProductsRowView(filterAndNavibarTitle: "Собаки")),
+        CategoryModel(title: "Кошки", image: Image("category_2"), presentPage: ProductsRowView(filterAndNavibarTitle: "Кошки")),
+        CategoryModel(title: "Грызуны", image: Image("category_3"), presentPage: ProductsRowView(filterAndNavibarTitle: "Грызуны")),
+        CategoryModel(title: "Рыбки", image: Image("category_5"), presentPage: ProductsRowView(filterAndNavibarTitle: "Рыбки"))
+    ]
     
     var body: some View {
+        NavigationView {
             VStack {
                 SearchBarView(serchText: $serchText, isSearching: $isSearching)
+                
                 ScrollView(showsIndicators: false) {
                     VStack {
-                        
                         
                         VStack {
                             Text("Популярные бренды")
@@ -51,7 +52,7 @@ struct MainView: View {
                         Spacer()
                             .frame(height: 20)
                         
-
+                        
                         VStack {
                             ScrollView(.horizontal, showsIndicators: false) {
                                 HStack {
@@ -79,7 +80,7 @@ struct MainView: View {
                                 }
                             }
                         }
-
+                        
                         HStack {
                             VStack {
                                 Text("Категории")
@@ -91,84 +92,85 @@ struct MainView: View {
                                 Divider()
                                     .background(Color.black)
                                     .padding(.horizontal, 16)
- //                               ForEach(0 ..< categories.count, id: \.self) { i in
-//                                    CategoriesRow(text: categories[i], image: Image("category_\(i + 1)"), catrgory: <#CatrgoryModel#>)
-//                                }
+                                
                                 ForEach(categories) { category in
-                                    CategoriesRowViewModel( catrgory: category)
-
-                                }
+                                    CategoriesRowViewModel(catrgory: category)
+                                    
+                                }.navigationBarHidden(true)
+                                
                             }
                         }
+                        
                     }
                     Spacer()
                         .frame(height: 70)
                 }
             }
             .padding(.top, 1)
-            .onTapGesture {
-                UIApplication.shared.endEditing()
-            }
+            .onTapGesture {UIApplication.shared.endEditing()}
+            // .navigationTitle("")
+            .navigationBarHidden(true)
+        }
     }
 }
 
 struct MainView_Previews: PreviewProvider {
     static var previews: some View {
-            MainView()
+        MainView()
     }
 }
 
 struct SearchBarView: View {
     @Binding var serchText: String
     @Binding var isSearching: Bool
-
+    
     var body: some View {
         
-          //  ScrollView {
-                HStack {
-                    TextField("Что ищем?", text: $serchText)
-                        .padding(.leading, 29)
+        //  ScrollView {
+        HStack {
+            TextField("Что ищем?", text: $serchText)
+                .padding(.leading, 29)
+        }
+        .cornerRadius(20)
+        .padding(10)
+        .padding(.horizontal)
+        .background(.ultraThinMaterial)
+        .foregroundColor(.black)
+        .cornerRadius(15)
+        .padding(.horizontal)
+        .shadow(color: Color.purple.opacity(0.5), radius: 4, x: 6, y: 3)
+        .frame(width: nil, height: 60)
+        
+        .onTapGesture(perform: { isSearching = true })
+        .overlay(
+            HStack{
+                Image(systemName: "magnifyingglass")
+                Spacer()
+                
+                if isSearching {
+                    Button(action: {serchText = "" }, label: {
+                        Image(systemName: "xmark.circle.fill")
+                    })
                 }
-                .cornerRadius(20)
-                .padding(10)
-                .padding(.horizontal)
-                .background(.ultraThinMaterial)
+            }.padding(.horizontal, 32)
                 .foregroundColor(.black)
-                .cornerRadius(15)
-                .padding(.horizontal)
-                .shadow(color: Color.purple.opacity(0.5), radius: 4, x: 6, y: 3)
-                .frame(width: nil, height: 60)
+            
+        )
+        
+        ForEach((0 ..< 20).filter({ "\($0)".contains(serchText)
+            // || serchText.isEmpty
+            
+        }), id: \.self) { num in
+            HStack {
+                Text("\(num)")
+                Spacer()
                 
-                .onTapGesture(perform: { isSearching = true })
-                .overlay(
-                    HStack{
-                        Image(systemName: "magnifyingglass")
-                        Spacer()
-                        
-                        if isSearching {
-                            Button(action: {serchText = "" }, label: {
-                                Image(systemName: "xmark.circle.fill")
-                            })
-                        }
-                    }.padding(.horizontal, 32)
-                        .foregroundColor(.black)
-                    
-                )
-                
-                ForEach((0 ..< 20).filter({ "\($0)".contains(serchText)
-                    // || serchText.isEmpty
-                    
-                }), id: \.self) { num in
-                    HStack {
-                        Text("\(num)")
-                        Spacer()
-                        
-                    }
-                    .padding()
-                    Divider()
-                        .background(Color.black)
-                }
-          //  }
+            }
+            .padding()
+            Divider()
+                .background(Color.black)
+        }
+        //  }
     }
 }
 
@@ -187,15 +189,6 @@ struct PopularBrandsView: View {
     }
 }
 
-struct BannerImageView: View {
-    var body: some View {
-            Image("petShopbaner")
-                .resizable()
-                .frame(width: UIScreen.main.bounds.width, height: 144)
-        Spacer()
-            .frame(width: 32)
-    }
-}
 
 struct PromotedCategoriesView: View {
     let isActive: Bool
@@ -209,16 +202,16 @@ struct PromotedCategoriesView: View {
                     Text(text)
                         .font(.system(size: 18))
                         .fontWeight(.medium)
-                        .foregroundColor(isActive ? Color.black : Color.black.opacity(0.5))
+                        .foregroundColor(isActive ? Color.black : Color.black.opacity(0.5)).invertOnDarkTheme()
                     
                     if (isActive) {
                         Rectangle().fill(Color.purple)
-                        .frame(height: 3)
+                            .frame(height: 3)
                     }
                 }
                 .padding(.leading)
             }
-
+            
             
         }
     }
@@ -228,10 +221,11 @@ struct ProductCardView: View {
     let image: Image
     var body: some View {
         ZStack {
-            RoundedRectangle(cornerRadius: 40).fill(.white)
-                .shadow(color: Color.purple.opacity(0.5), radius: 5, x: 9, y: 9)
-                .background(Color.white)
+            RoundedRectangle(cornerRadius: 40).fill(Color(UIColor.systemBackground))
                 .frame(width: UIScreen.main.bounds.width - 28, height: 230)
+                .shadow(color: Color.purple.opacity(0.5), radius: 5, x: 9, y: 9)
+                .background(Color(UIColor.systemBackground))
+            
             VStack {
                 HStack(alignment: .top) {
                     image
@@ -264,9 +258,10 @@ struct ProductCardView: View {
                             Text("39.35 руб.")
                                 .strikethrough()
                                 .foregroundColor(.black.opacity(0.7))
+                                .invertOnDarkTheme()
                         }
                     }
-                    .padding(.vertical,5)
+                    .padding(.vertical, 5)
                 }
                 .padding(.horizontal, 7)
                 
@@ -291,40 +286,9 @@ struct ProductCardView: View {
         .padding()
         .padding(.horizontal, 16)
         .frame(width: UIScreen.main.bounds.width - 20, height: 270)
+        
+        
     }
+    //        .background((Color(UIColor.systemBackground)))
     
-}
-
-struct CategoriesRow: View {
-    
-    var catrgory: CatrgoryModel
-    
-    var body: some View {
-        Button {
-       //some action
-        } label: {
-            VStack {
-                HStack {
-                    catrgory.image
-                        .frame(width: 32, height: 32)
-                    Spacer()
-                        .frame(width: 24)
-                    Text(catrgory.title)
-                        .font(.system(size: 16))
-                        .foregroundColor(.black)
-                    Spacer()
-                    Image(systemName: "chevron.forward")
-                        .frame(width: 20, height: 10)
-                        .foregroundColor(.black)
-                    Spacer()
-                        .frame(width: 20)
-                }
-                .padding()
-                Divider()
-                    .background(Color.black )
-                    .padding(.horizontal, 16)
-                
-            }
-        }
-    }
 }

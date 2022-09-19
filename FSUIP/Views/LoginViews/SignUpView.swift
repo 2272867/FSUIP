@@ -26,16 +26,16 @@ struct SignUpView: View {
             
             VStack(spacing: 10.0) {
                 
-                TextFieldForLoginScreen(textValue: $model.email_SignUp, placeholder: "Email", icon: "at", onEditingChanged: { flag in withAnimation {
-                        self.formOffset = flag ? 0 : 0}})
-                
-                TextFieldForLoginScreen(textValue: $model.password_SignUp, placeholder: "Придумайте пароль", icon: "lock", isSecure: true, onEditingChanged: { flag in withAnimation {
+                TextFieldForLoginScreenViewModel(textValue: $model.email_SignUp, placeholder: "Email", icon: "at", onEditingChanged: { flag in withAnimation {
                     self.formOffset = flag ? 0 : 0}})
                 
-                TextFieldForLoginScreen(textValue: $model.reEnterPassword, placeholder: "Повторите свой пароль", icon: "lock.rotation", isSecure: true, onEditingChanged: { flag in withAnimation {
+                TextFieldForLoginScreenViewModel(textValue: $model.password_SignUp, placeholder: "Придумайте пароль", icon: "eye", isSecure: true, onEditingChanged: { flag in withAnimation {
+                    self.formOffset = flag ? 0 : 0}})
+                
+                TextFieldForLoginScreenViewModel(textValue: $model.reEnterPassword, placeholder: "Повторите свой пароль", icon: "eye", isSecure: true, onEditingChanged: { flag in withAnimation {
                     self.formOffset = flag ? -200 : 0}})
                 
-                ButtonForLoginScreens(text: "Зарегистрироваться") {
+                ButtonForLoginScreensViewModel(text: "Зарегистрироваться") {
                     model.singUp()
                 }
             }
@@ -56,9 +56,7 @@ struct SignUpView: View {
                 if model.alertMsg == "На ваш email выслано письмо. Подтвердите регистрацию." {
                     
                     self.presentSignupSheet = false
-                    model.email_SignUp = ""
-                    model.password_SignUp = ""
-                    model.reEnterPassword = ""
+                    model.clearField()
                 }
             }))
         })
