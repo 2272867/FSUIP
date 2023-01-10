@@ -1,1 +1,1 @@
-# FSUIP
+# Application with custom TabBar, validation screen, Profile and bookmarks. Created on SwiftUI using Google Firebase, UserDefaults. MVVM was chosen as an architectural pattern with several Combine elements.
