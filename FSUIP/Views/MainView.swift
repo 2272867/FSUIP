@@ -10,8 +10,8 @@ import SwiftUI
 import CoreData
 
 struct MainView: View {
-    // @State private var isShowingProfileView = false
-    // @State 
+    @StateObject var viewModel = ProductsViewModel()
+
     @State private var selectedCategory: Int = 0
     @State private var serchText = ""
     @State private var isSearching = false
@@ -27,9 +27,9 @@ struct MainView: View {
     var body: some View {
         NavigationView {
             VStack {
-                SearchBarView(serchText: $serchText, isSearching: $isSearching)
                 
                 ScrollView(showsIndicators: false) {
+                    SearchBarView(serchText: $serchText, isSearching: $isSearching)
                     VStack {
                         
                         VStack {
@@ -123,9 +123,12 @@ struct MainView_Previews: PreviewProvider {
 struct SearchBarView: View {
     @Binding var serchText: String
     @Binding var isSearching: Bool
+    @ObservedObject var viewModel = ProductsViewModel()
     
     var body: some View {
-        
+        ZStack {
+            
+        }
         //  ScrollView {
         HStack {
             TextField("Что ищем?", text: $serchText)
@@ -154,15 +157,20 @@ struct SearchBarView: View {
                 }
             }.padding(.horizontal, 32)
                 .foregroundColor(.black)
-            
-        )
+            )
         
-        ForEach((0 ..< 20).filter({ "\($0)".contains(serchText)
-            // || serchText.isEmpty
-            
-        }), id: \.self) { num in
+        // || serchText.isEmpty
+        ScrollView {
+            ForEach(viewModel.products.filter{$0.title.contains(serchText)}) { product in
+                ProductsRowView(filterAndNavibarTitle: serchText)
+            }
+        }.onAppear() {
+          //  print("Subscribing to data updates.")
+            self.viewModel.subscribe() }
+    
+        ForEach(viewModel.products.filter { $0.title.contains(serchText)}) { products in
             HStack {
-                Text("\(num)")
+                Text("\(products.title)")
                 Spacer()
                 
             }
@@ -170,6 +178,19 @@ struct SearchBarView: View {
             Divider()
                 .background(Color.black)
         }
+        
+//        ForEach((0 ..< 20).filter({ "\($0)".contains(serchText) }), id: \.self) { products in
+//            HStack {
+//                Text("\(products)")
+//                Spacer()
+//
+//            }
+//            .padding()
+//            Divider()
+//                .background(Color.black)
+//        }
+        
+        
         //  }
     }
 }

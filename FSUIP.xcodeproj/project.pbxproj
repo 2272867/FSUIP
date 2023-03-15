@@ -170,13 +170,13 @@
 		75D16E642895A8100030D52B /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				75D9A5BF28BD2BC7006863FC /* ProductsRowView.swift */,
 				7584D5AA2898524100688E56 /* ContentView.swift */,
 				7546ACB828A7D87700C5D684 /* LoginViews */,
 				753970E9287F52D90056937F /* MainView.swift */,
 				752D98AA289FD4B9000EDDD8 /* ProductsBookmarkView.swift */,
 				752D98A8289FD490000EDDD8 /* ShopingCartView.swift */,
 				753AAA89289702D1008F8BB2 /* ProfileView.swift */,
+				75D9A5BF28BD2BC7006863FC /* ProductsRowView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";

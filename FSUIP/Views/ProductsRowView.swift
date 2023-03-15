@@ -11,10 +11,12 @@ import FirebaseFirestore
 import SDWebImageSwiftUI
 
 struct ProductsRowView: View {
+    
     var filterAndNavibarTitle: String
+    
     @ObservedObject var viewModel = ProductsViewModel()
     
-        private func productRowView(product: ProductModel) -> some View {
+       private func productRowView(product: ProductModel) -> some View {
             HStack {
                 NavigationLink(destination: FullDetailsProductViewModel(product: product)) {
                     
@@ -61,25 +63,10 @@ struct ProductsRowView: View {
             ScrollView {
                 ForEach(viewModel.products.filter{$0.category.contains(filterAndNavibarTitle)}) { product in
                     productRowView(product: product)
-                    
-                    //                        if self.isShowingProductDetails {
-                    //
-                    //                                    GeometryReader {_ in
-                    //                                        FullDetailsProductViewModel()
-                    //                                    }
-                    //                                    .background(
-                    //                                        Color.black.opacity(0.65)
-                    //                                            .edgesIgnoringSafeArea(.all)
-                    //                                            .onTapGesture {
-                    //                                                withAnimation {
-                    //                                                    isShowingProductDetails.toggle()
-                    //                                                }
-                    //                                            }
-                    //                                    )
-                    //                                }
+
                 }
             }.onAppear() {
-                print("Subscribing to data updates.")
+              //  print("subscr to updates.")
                 self.viewModel.subscribe() }
         
     }

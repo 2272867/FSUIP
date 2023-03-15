@@ -17,10 +17,10 @@ struct ProductModel: Identifiable, Codable {
     var title: String
     var description: String
     var image: String
-    var price: Double
+    var price: Int
     var productBrand: String
     var category: String
-    var productWeight: Double
+    var productWeight: Int
     
     enum CodingKeys: String, CodingKey {
         case id
@@ -38,6 +38,6 @@ struct Order: Identifiable, Codable {
   @DocumentID var id: String?
   var username: String
   var title: String
-  var price: Double
+  var price: Int
   var image: String
 }

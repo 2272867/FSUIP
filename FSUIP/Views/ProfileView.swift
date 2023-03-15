@@ -30,12 +30,7 @@ struct ProfileView: View {
                 previosOrderListView
                 
             }
-            
-            
-            //        Button("Выйди и зайди нормально!!!") {
-            //            model.logOut()
-            //        }
-            
+
         }
         .padding(.top, 1)
     }
@@ -49,7 +44,7 @@ struct ProfileView: View {
                 .shadow(radius: 10)
                 .clipShape(Circle())
                 .matchedGeometryEffect(id: profileAvatar, in: profileAnimation)
-            // VStack {
+
             Text("Name Surname")
                 .lineLimit(1)
                 .matchedGeometryEffect(id: profileName, in: profileAnimation)
@@ -60,9 +55,9 @@ struct ProfileView: View {
                 .matchedGeometryEffect(id: profileEmail, in: profileAnimation)
             
             TextEditor(text: $currentAddres)
-            
-            //            }
-            //            .padding()
+                    Button("Выйди и зайди нормально!!!") {
+                        model.logOut()
+                    }
         }
     }
     
@@ -82,7 +77,7 @@ struct ProfileView: View {
                 RoundedRectangle(cornerRadius: 20)
                     .foregroundColor(Color.purple.opacity(0.7))
                 VStack {
-                    Text("Artur Salodki")
+                    Text("Name Surname")
                         .lineLimit(1)
                         .matchedGeometryEffect(id: profileName, in: profileAnimation)
                     Text("\(Auth.auth().currentUser?.email ?? "")")

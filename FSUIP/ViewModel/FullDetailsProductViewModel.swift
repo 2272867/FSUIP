@@ -9,16 +9,12 @@ import SwiftUI
 import SDWebImageSwiftUI
 
 struct FullDetailsProductViewModel: View {
-  //  @Binding var isShowingProductDetails: Bool
- // @ObservedObject var viewModel = ProductViewModel()
     var product: ProductModel
-    
     var body: some View {
 
         VStack(alignment: .center) {
                     HStack {
                         AnimatedImage(url: URL(string: product.image)!)
-                       // Image("test_1")
                             .resizable()
                             .frame(width: 100, height: 180)
                             .cornerRadius(20.0)
@@ -50,14 +46,11 @@ struct FullDetailsProductViewModel: View {
                             .font(.system(size: 25))
                             .fontWeight(.bold)
                             .foregroundColor(.purple.opacity(0.9))
-//                        Text("39.35 руб.")
-//                            .strikethrough()
-//                            .foregroundColor(.black.opacity(0.7))
-//                            .invertOnDarkTheme()
+
                     }
                     Spacer()
                         .frame(height: 10)
-            Text("\(product.productWeight)")
+            Text("\(product.productWeight) кг.")
                     Spacer()
                         .frame(height: 10)
                     
@@ -77,7 +70,7 @@ struct FullDetailsProductViewModel: View {
                         Spacer()
                     }
                     .padding()
-                    ButtonForLoginScreensViewModel(text: "Dobavit v korzinu", action: {
+                    ButtonForLoginScreensViewModel(text: "Добавить в корзина", action: {
                         
                     })
                     
