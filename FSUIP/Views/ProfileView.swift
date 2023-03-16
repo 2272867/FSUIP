@@ -44,47 +44,55 @@ struct ProfileView: View {
                     .shadow(radius: 10)
                     .clipShape(Circle())
                     .matchedGeometryEffect(id: profileAvatar, in: profileAnimation)
-                HStack {
-                    Text("Имя")
-                    TextField("", text: $name)
-                        .matchedGeometryEffect(id: profileName, in: profileAnimation)
+                
+                VStack {
+                    HStack {
+                        Text("Имя")
+                        Spacer()
+                        TextField("", text: $name)
+                            .cornerRadius(20)
+                            .padding(10)
+                            .padding(.horizontal)
+                            .background(.ultraThinMaterial)
+                            .foregroundColor(.black)
+                            .cornerRadius(3)
+                            .padding(.horizontal)
+                            .shadow(color: Color.purple.opacity(0.5), radius: 4, x: 6, y: 3)
+                            .frame(width: 246, height: 56)
+                    }
+                 //   .padding(.horizontal, 62)
+                    
+                    Spacer()
+                        .frame(height: 1)
+                    
+                    HStack {
+                        Text("Телефон")
+                        Spacer()
+                        TextField("", text: $phoneNumber)
+                            .cornerRadius(20)
+                            .padding(10)
+                            .padding(.horizontal)
+                            .background(.ultraThinMaterial)
+                            .foregroundColor(.black)
+                            .cornerRadius(3)
+                            .padding(.horizontal)
+                            .shadow(color: Color.purple.opacity(0.5), radius: 4, x: 6, y: 3)
+                            .frame(width: 246, height: 56)
+                    }
+                    //.padding(.horizontal, 25)
+                    
                 }
-                .cornerRadius(20)
-                .padding(10)
-                .padding(.horizontal)
-                .background(.ultraThinMaterial)
-                .foregroundColor(.black)
-                .cornerRadius(15)
-                .padding(.horizontal)
-                .shadow(color: Color.purple.opacity(0.5), radius: 4, x: 6, y: 3)
-                .frame(width: nil, height: 60)
+                .padding()
                 
                 
-                HStack {
-                    Text("Телефон")
-                    TextField("", text: $phoneNumber)
-                }
-                .cornerRadius(20)
-                .padding(10)
-                .padding(.horizontal)
-                .background(.ultraThinMaterial)
-                .foregroundColor(.black)
-                .cornerRadius(15)
-                .padding(.horizontal)
-                .shadow(color: Color.purple.opacity(0.5), radius: 4, x: 6, y: 3)
-                .frame(width: nil, height: 60)
                 
-                
-                TextField("", text: $name)
-                    .lineLimit(1)
-                    .matchedGeometryEffect(id: profileName, in: profileAnimation)
                 Spacer()
                 
                 Text("\(Auth.auth().currentUser?.email ?? "")")
                     .lineLimit(1)
-                    .matchedGeometryEffect(id: profileEmail, in: profileAnimation)
+
                 
-                Spacer()
+              //  Spacer()
                 
                 TextEditor(text: $currentAddres)
                 Button("Выйти") {
