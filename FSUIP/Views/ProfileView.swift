@@ -11,55 +11,89 @@ import FirebaseAuth
 struct ProfileView: View {
     @AppStorage("login_Status") var status = true
     @StateObject var model = CredentialsModel()
+    @State private var name = " "
+    @State private var phoneNumber = " "
     @State private var isProfileExpended: Bool = false
-    @State private var currentAddres: String = "ul. kurica dom pituha"
+    @State private var currentAddres: String = "Текущий адрес доставки: Минск, Широкая, д. 3, кв. 26"
     @Namespace private var profileAnimation
     @Namespace private var profileAvatar
     @Namespace private var profileName
     @Namespace private var profileEmail
     
     var body: some View {
-        ScrollView {
-            if isProfileExpended {
+//        ScrollView {
+//            if isProfileExpended {
+//
+//                expendedProfileView
+//
+//            } else {
+//
+//                collapsedProfileView
+//                previosOrderListView
+//
+//            }
+//
+//        }
+//        .padding(.top, 1)
+ //       var expendedProfileView: some View {
+            VStack {
+                profileImageView
+                    .frame(width: 250, height: 250)
+                    .scaledToFill()
+                    .overlay(Circle().stroke(Color.purple, lineWidth: 5))
+                    .shadow(radius: 10)
+                    .clipShape(Circle())
+                    .matchedGeometryEffect(id: profileAvatar, in: profileAnimation)
+                HStack {
+                    Text("Имя")
+                    TextField("", text: $name)
+                        .matchedGeometryEffect(id: profileName, in: profileAnimation)
+                }
+                .cornerRadius(20)
+                .padding(10)
+                .padding(.horizontal)
+                .background(.ultraThinMaterial)
+                .foregroundColor(.black)
+                .cornerRadius(15)
+                .padding(.horizontal)
+                .shadow(color: Color.purple.opacity(0.5), radius: 4, x: 6, y: 3)
+                .frame(width: nil, height: 60)
                 
-                expendedProfileView
                 
-            } else {
+                HStack {
+                    Text("Телефон")
+                    TextField("", text: $phoneNumber)
+                }
+                .cornerRadius(20)
+                .padding(10)
+                .padding(.horizontal)
+                .background(.ultraThinMaterial)
+                .foregroundColor(.black)
+                .cornerRadius(15)
+                .padding(.horizontal)
+                .shadow(color: Color.purple.opacity(0.5), radius: 4, x: 6, y: 3)
+                .frame(width: nil, height: 60)
                 
-                collapsedProfileView
-                previosOrderListView
                 
+                TextField("", text: $name)
+                    .lineLimit(1)
+                    .matchedGeometryEffect(id: profileName, in: profileAnimation)
+                Spacer()
+                
+                Text("\(Auth.auth().currentUser?.email ?? "")")
+                    .lineLimit(1)
+                    .matchedGeometryEffect(id: profileEmail, in: profileAnimation)
+                
+                Spacer()
+                
+                TextEditor(text: $currentAddres)
+                Button("Выйти") {
+                    model.logOut()
+                }
             }
-
-        }
-        .padding(.top, 1)
+    //    }
     }
     
-    var expendedProfileView: some View {
-        VStack {
-            profileImageView
-                .frame(width: 250, height: 250)
-                .scaledToFill()
-                .overlay(Circle().stroke(Color.purple, lineWidth: 5))
-                .shadow(radius: 10)
-                .clipShape(Circle())
-                .matchedGeometryEffect(id: profileAvatar, in: profileAnimation)
-
-            Text("Name Surname")
-                .lineLimit(1)
-                .matchedGeometryEffect(id: profileName, in: profileAnimation)
-            Spacer()
-            
-            Text("111\(Auth.auth().currentUser?.email ?? "")")
-                .lineLimit(1)
-                .matchedGeometryEffect(id: profileEmail, in: profileAnimation)
-            
-            TextEditor(text: $currentAddres)
-                    Button("Выйди и зайди нормально!!!") {
-                        model.logOut()
-                    }
-        }
-    }
     
     var collapsedProfileView: some View {
         HStack {
@@ -77,7 +111,7 @@ struct ProfileView: View {
                 RoundedRectangle(cornerRadius: 20)
                     .foregroundColor(Color.purple.opacity(0.7))
                 VStack {
-                    Text("Name Surname")
+                    TextField("", text: $name)
                         .lineLimit(1)
                         .matchedGeometryEffect(id: profileName, in: profileAnimation)
                     Text("\(Auth.auth().currentUser?.email ?? "")")
